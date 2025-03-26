@@ -122,7 +122,7 @@ export default function PortfolioPage() {
           <div className="mx-auto max-w-2xl lg:mx-0">
             <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Client Testimonials</h2>
             <p className="mt-6 text-lg leading-8 text-gray-600">
-              Don't just take our word for it. Here's what our clients have to say about working with PearlyWrites.
+              Don&apos;t just take our word for it. Here&apos;s what our clients have to say about working with PearlyWrites.
             </p>
           </div>
           <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 lg:mx-0 lg:mt-20 lg:max-w-none lg:grid-cols-3">

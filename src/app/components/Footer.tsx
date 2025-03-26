@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import Image from 'next/image'
 import { FaTwitter, FaLinkedin, FaGithub } from 'react-icons/fa';
 
 interface SocialLink {
@@ -70,10 +70,12 @@ export default function Footer() {
       <div className="mx-auto max-w-7xl px-6 pb-8 pt-16 sm:pt-24 lg:px-8 lg:pt-32">
         <div className="xl:grid xl:grid-cols-3 xl:gap-8">
           <div className="space-y-8">
-            <img
+            <Image
               className="h-7"
               src="/logo.svg"
               alt="PearlyWrites"
+              width={28}
+              height={28}
             />
             <p className="text-sm leading-6 text-gray-600">
               Making the world better through strategic content and clear communication.

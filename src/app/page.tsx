@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import { ChartBarIcon, PencilIcon, MegaphoneIcon, AcademicCapIcon } from "@heroicons/react/24/outline";
 
