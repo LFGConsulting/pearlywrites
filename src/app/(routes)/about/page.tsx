@@ -80,7 +80,7 @@ export default function AboutPage() {
                 execution.
               </p>
               <p className="mt-8">
-                Lisa holds a Master's degree in Education and has been featured in various industry publications for her
+                Lisa holds a Master&apos;s degree in Education and has been featured in various industry publications for her
                 innovative approaches to content strategy and SEO. She regularly speaks at industry conferences and
                 contributes to leading digital marketing publications.
               </p>
