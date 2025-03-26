@@ -50,7 +50,7 @@ const testimonials = [
     },
   },
   {
-    body: 'The team's ability to create engaging, technically accurate content that resonates with our audience is remarkable.',
+    body: "The team's ability to create engaging, technically accurate content that resonates with our audience is remarkable.",
     author: {
       name: 'Michael Rodriguez',
       handle: 'Marketing Director at TechGrowth',
