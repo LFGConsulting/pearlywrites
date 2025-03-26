@@ -50,7 +50,7 @@ const testimonials = [
     },
   },
   {
-    body: "The team&apos;s ability to create engaging, technically accurate content that resonates with our audience is remarkable.",
+    body: 'The team&apos;s ability to create engaging, technically accurate content that resonates with our audience is remarkable.',
     author: {
       name: 'Michael Rodriguez',
       handle: 'Marketing Director at TechGrowth',
@@ -131,7 +131,7 @@ export default function PortfolioPage() {
                 <div className="flex flex-1 flex-col justify-between bg-white">
                   <div className="flex-1">
                     <blockquote className="text-lg font-semibold leading-8 text-gray-900">
-                      "{testimonial.body}"
+                      &ldquo;{testimonial.body}&rdquo;
                     </blockquote>
                   </div>
                   <div className="mt-8 flex items-center gap-x-4">
@@ -159,7 +159,7 @@ export default function PortfolioPage() {
               Ready to transform your content strategy?
             </h2>
             <p className="mx-auto mt-6 max-w-xl text-lg leading-8 text-gray-300">
-              Let's discuss how we can help you achieve your content goals and drive meaningful results for your
+              Let&apos;s discuss how we can help you achieve your content goals and drive meaningful results for your
               organization.
             </p>
             <div className="mt-10 flex items-center justify-center gap-x-6">
