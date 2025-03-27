@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import { FaTwitter, FaLinkedin, FaGithub } from 'react-icons/fa';
+import { FaTwitter, FaLinkedin, FaInstagram, FaTiktok, FaYoutube } from 'react-icons/fa';
 
 interface SocialLink {
   name: string;
@@ -28,13 +28,23 @@ const social: SocialLink[] = [
   },
   {
     name: 'LinkedIn',
-    href: 'https://linkedin.com/in/lisaweinberger',
+    href: 'https://www.linkedin.com/in/pearlywrites/',
     icon: FaLinkedin
   },
   {
-    name: 'GitHub',
-    href: 'https://github.com/pearlywrites',
-    icon: FaGithub
+    name: 'Instagram',
+    href: 'https://www.instagram.com/pearlywrites/',
+    icon: FaInstagram
+  },
+  {
+    name: 'TikTok',
+    href: 'https://www.tiktok.com/@pearlywrites',
+    icon: FaTikTok
+  },
+  {
+    name: 'YouTube',
+    href: 'https://www.youtube.com/user/PearlyWrites',
+    icon: FaYoutube
   }
 ];
 
