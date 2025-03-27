@@ -1,5 +1,8 @@
+'use client'
+
 import { useTheme } from '../ThemeProvider'
 import { Button } from './Button'
+import { SunIcon, MoonIcon } from '@heroicons/react/24/outline'
 
 export function ThemeToggle() {
   const { theme, toggleTheme } = useTheme()
