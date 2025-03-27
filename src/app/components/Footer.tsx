@@ -58,18 +58,19 @@ export default function Footer() {
         <div className="xl:grid xl:grid-cols-3 xl:gap-8">
           <div className="space-y-8">
             <Image
-              className="h-7"
-              src="/logo.svg"
+              className="h-12 w-12"
+              src="/pearlywrites-logo.jpeg"
               alt="PearlyWrites"
-              width={28}
-              height={28}
+              width={48}
+              height={48}
+              priority
             />
             <p className="text-sm leading-6 text-gray-600">
               Making the world better through strategic content and clear communication.
             </p>
             <div className="flex space-x-6">
               {social.map((item) => (
-                <a key={item.name} href={item.href} className="text-gray-400 hover:text-gray-500">
+                <a key={item.name} href={item.href} className="text-[#663399] hover:text-[#8652c7]">
                   <span className="sr-only">{item.name}</span>
                   <item.icon className="h-6 w-6" aria-hidden="true" />
                 </a>
@@ -79,11 +80,11 @@ export default function Footer() {
           <div className="mt-16 xl:mt-0 xl:col-span-2">
             <div className="md:grid md:grid-cols-1 md:gap-8">
               <div>
-                <h3 className="text-sm font-semibold leading-6 text-gray-900">Navigation</h3>
+                <h3 className="text-sm font-semibold leading-6 text-[#663399]">Navigation</h3>
                 <ul role="list" className="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-3">
                   {navigation.map((item) => (
                     <li key={item.name}>
-                      <a href={item.href} className="text-sm leading-6 text-gray-600 hover:text-gray-900">
+                      <a href={item.href} className="text-sm leading-6 text-gray-600 hover:text-[#663399]">
                         {item.name}
                       </a>
                     </li>
