@@ -39,7 +39,7 @@ const social: SocialLink[] = [
   {
     name: 'TikTok',
     href: 'https://www.tiktok.com/@pearlywrites',
-    icon: FaTikTok
+    icon: FaTiktok
   },
   {
     name: 'YouTube',
