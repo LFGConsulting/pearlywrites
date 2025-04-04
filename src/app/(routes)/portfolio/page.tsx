@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { Container } from '../../components/ui'
+import { Carousel } from '../../components/ui/Carousel'
 
 const caseStudies = [
   {
@@ -72,7 +73,7 @@ export default function PortfolioPage() {
   return (
     <div className="bg-white dark:bg-gray-900">
       <Container className="py-24 sm:py-32">
-        <div className="mx-auto max-w-2xl text-center">
+        <div className="mx-auto max-w-2xl text-center mb-16">
           <h1 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">Our Work</h1>
           <p className="mt-2 text-lg leading-8 text-gray-600 dark:text-gray-300">
             Discover how we've helped organizations achieve their content goals through strategic planning and exceptional
@@ -80,79 +81,7 @@ export default function PortfolioPage() {
           </p>
         </div>
 
-        <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
-          <dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-3">
-            {caseStudies.map((study) => (
-              <div key={study.client} className="flex flex-col">
-                <dt className="flex flex-col items-start">
-                  <div className="relative aspect-[16/9] w-full">
-                    <Image
-                      src={study.image}
-                      alt={study.title}
-                      fill
-                      className="rounded-2xl object-cover"
-                    />
-                  </div>
-                  <div className="mt-4 flex flex-col">
-                    <p className="text-lg font-semibold leading-7 text-gray-900 dark:text-white">{study.title}</p>
-                    <p className="text-base leading-7 text-brand-500 dark:text-brand-400">{study.client}</p>
-                  </div>
-                </dt>
-                <dd className="mt-4 flex flex-auto flex-col">
-                  <p className="flex-auto text-base leading-7 text-gray-600 dark:text-gray-300">{study.description}</p>
-                  <div className="mt-6">
-                    <div className="isolate flex -space-x-2">
-                      {study.metrics.map((metric) => (
-                        <div
-                          key={metric.name}
-                          className="relative w-28 overflow-hidden rounded-lg bg-gray-50 dark:bg-gray-800 px-4 py-3 text-center"
-                        >
-                          <p className="text-sm font-semibold text-gray-900 dark:text-white">{metric.value}</p>
-                          <p className="text-xs text-gray-600 dark:text-gray-400">{metric.name}</p>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </dd>
-              </div>
-            ))}
-          </dl>
-        </div>
-
-        <div className="mx-auto mt-32 max-w-7xl sm:mt-40">
-          <div className="mx-auto max-w-2xl lg:mx-0">
-            <h2 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">Client Testimonials</h2>
-            <p className="mt-6 text-lg leading-8 text-gray-600 dark:text-gray-300">
-              Don&apos;t just take our word for it. Here&apos;s what our clients have to say about working with PearlyWrites.
-            </p>
-          </div>
-          <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 lg:mx-0 lg:mt-20 lg:max-w-none lg:grid-cols-3">
-            {testimonials.map((testimonial) => (
-              <div key={testimonial.author.name} className="flex flex-col">
-                <div className="flex flex-1 flex-col justify-between bg-white dark:bg-gray-800 rounded-2xl p-8">
-                  <div className="flex-1">
-                    <blockquote className="text-lg font-semibold leading-8 text-gray-900 dark:text-white">
-                      &ldquo;{testimonial.body}&rdquo;
-                    </blockquote>
-                  </div>
-                  <div className="mt-8 flex items-center gap-x-4">
-                    <Image
-                      className="h-10 w-10 rounded-full bg-gray-50"
-                      src={testimonial.author.imageUrl}
-                      alt={testimonial.author.name}
-                      width={40}
-                      height={40}
-                    />
-                    <div>
-                      <div className="font-semibold text-gray-900 dark:text-white">{testimonial.author.name}</div>
-                      <div className="text-gray-600 dark:text-gray-300">{testimonial.author.handle}</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
+        <Carousel items={caseStudies} />
 
         <div className="mx-auto mt-32 max-w-7xl sm:mt-40">
           <div className="relative isolate overflow-hidden bg-brand-900 px-6 py-24 text-center shadow-2xl sm:rounded-3xl sm:px-16">
@@ -160,7 +89,7 @@ export default function PortfolioPage() {
               Ready to transform your content strategy?
             </h2>
             <p className="mx-auto mt-6 max-w-xl text-lg leading-8 text-gray-300">
-              Let&apos;s discuss how we can help you achieve your content goals and drive meaningful results for your
+              Let's discuss how we can help you achieve your content goals and drive meaningful results for your
               organization.
             </p>
             <div className="mt-10 flex items-center justify-center gap-x-6">
