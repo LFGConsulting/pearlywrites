@@ -4,32 +4,32 @@ import { Container } from '../../components/ui'
 
 const tiers = [
   {
-    name: 'SEO & Content Strategy',
-    id: 'seo-content',
+    name: 'SEO Marketing',
+    id: 'seo-marketing',
     href: '/contact',
-    description: 'Comprehensive SEO and content strategy services to boost your online presence.',
+    description: 'Strategic SEO and marketing services to enhance your digital presence and drive results.',
     features: [
-      'Keyword research and analysis',
-      'Content gap analysis',
-      'SEO audit and recommendations',
-      'Content calendar planning',
-      'Monthly performance reports',
+      'Comprehensive SEO strategy',
+      'Keyword research and optimization',
+      'Content strategy development',
+      'Performance tracking and analytics',
       'Competitor analysis',
+      'Monthly progress reports',
     ],
     featured: true,
   },
   {
-    name: 'Content Development',
-    id: 'content-dev',
+    name: 'Content Strategy',
+    id: 'content-strategy',
     href: '/contact',
-    description: 'Professional content writing services tailored to your brand voice.',
+    description: 'End-to-end content strategy and development services aligned with your business goals.',
     features: [
-      'Blog posts and articles',
-      'Website copy',
-      'Social media content',
-      'Email newsletters',
-      'Case studies',
-      'White papers',
+      'Content planning and calendars',
+      'Brand voice development',
+      'Content creation and editing',
+      'Content performance analysis',
+      'Content distribution strategy',
+      'Content optimization',
     ],
   },
   {
@@ -58,8 +58,8 @@ export default function ServicesPage() {
             Choose the right service for your needs
           </p>
           <p className="mt-6 text-lg leading-8 text-gray-600 dark:text-gray-300">
-            From SEO strategy to educational content development, we offer comprehensive writing and content services
-            to help you achieve your goals.
+            Specialized in SEO marketing, content strategy, and educational publishing, we deliver expert solutions
+            to help you achieve measurable results and lasting impact.
           </p>
         </div>
 
