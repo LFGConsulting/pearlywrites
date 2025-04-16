@@ -5,65 +5,77 @@ import { Carousel } from '../../components/ui/Carousel'
 
 const caseStudies = [
   {
-    title: 'Educational Publishing Platform',
-    client: 'LearnSmart Education',
+    title: 'SEO Strategy',
+    client: 'State University',
     description:
-      'Developed comprehensive curriculum materials and interactive content for a leading educational technology platform.',
+      'Developed site-wide SEO strategy for all academic program pages and blog for a state University, resulting in significant organic traffic growth and improved content marketing performance.',
     metrics: [
-      { name: 'Student Engagement', value: '+45%' },
-      { name: 'Learning Outcomes', value: '+32%' },
-      { name: 'Teacher Satisfaction', value: '98%' },
+      { name: 'YOY Organic Traffic', value: '+20%' },
+      { name: 'Non-brand Clicks', value: '+18%' },
+      { name: 'Content Marketing Response', value: '10%' },
     ],
     image: '/images/case-study-1.jpg',
   },
   {
     title: 'SEO Content Strategy',
-    client: 'TechGrowth Solutions',
+    client: 'Fortune 500 Personal Finance',
     description:
-      'Implemented a comprehensive SEO and content strategy that significantly improved organic search visibility.',
+      'Implemented a localized, geo-targeted SEO strategy as digital marketing subject matter expert, delivering best practice learning series on content publishing, social media, and SEO.',
     metrics: [
-      { name: 'Organic Traffic', value: '+156%' },
-      { name: 'Keyword Rankings', value: '+89' },
-      { name: 'Conversion Rate', value: '+23%' },
+      { name: 'Company Valuation', value: '$1.8B' },
+      { name: 'Organic Traffic', value: '75%' },
+      { name: 'Monthly Revenue', value: '$5M+' },
     ],
     image: '/images/case-study-2.jpg',
   },
   {
-    title: 'Content Marketing Campaign',
-    client: 'HealthCare Connect',
+    title: 'Content & Social Strategy',
+    client: 'IvyandZo.com',
     description:
-      'Created and executed a multi-channel content marketing campaign that increased brand awareness and patient engagement.',
+      'Led comprehensive social media strategy in the dog niche, building a significant following from scratch and establishing successful brand partnerships and collaborations.',
     metrics: [
-      { name: 'Lead Generation', value: '+78%' },
-      { name: 'Social Engagement', value: '+124%' },
-      { name: 'Website Traffic', value: '+92%' },
+      { name: 'TikTok Following', value: '70K+' },
+      { name: 'Brand Partnerships', value: 'Multiple' },
+      { name: 'Product Lines', value: 'Created' },
     ],
     image: '/images/case-study-3.jpg',
+  },
+  {
+    title: 'SEO, Branding, & Content Marketing',
+    client: 'MarijuanaRates.com',
+    description:
+      'Developed comprehensive SEO and content strategy for cannabis market pricing platform, achieving dominant market position through organic search and unique data offerings.',
+    metrics: [
+      { name: '#1 Organic Rankings', value: '55+' },
+      { name: 'Monthly Views', value: '50K' },
+      { name: 'Email Leads', value: '1.5K' },
+    ],
+    image: '/images/case-study-4.jpg',
   },
 ]
 
 const testimonials = [
   {
-    body: 'PearlyWrites transformed our content strategy. Their expertise in SEO and educational content has been invaluable to our growth.',
+    body: 'The SEO strategy implemented by PearlyWrites transformed our online presence, significantly improving our organic reach and student engagement.',
     author: {
-      name: 'Sarah Chen',
-      handle: 'CEO at LearnSmart Education',
+      name: 'Dr. James Mitchell',
+      handle: 'Digital Strategy Director, State University',
       imageUrl: '/images/testimonial-1.jpg',
     },
   },
   {
-    body: 'The team&apos;s ability to create engaging, technically accurate content that resonates with our audience is remarkable.',
+    body: 'Their expertise in geo-targeted SEO and content strategy helped us achieve remarkable growth in both traffic and revenue.',
     author: {
-      name: 'Michael Rodriguez',
-      handle: 'Marketing Director at TechGrowth',
+      name: 'Jennifer Adams',
+      handle: 'VP of Digital, Fortune 500 Finance',
       imageUrl: '/images/testimonial-2.jpg',
     },
   },
   {
-    body: 'Working with PearlyWrites has significantly improved our content quality and SEO performance. Highly recommended!',
+    body: 'PearlyWrites helped us build a powerful social media presence from scratch, leading to valuable partnerships and brand growth.',
     author: {
-      name: 'Emily Thompson',
-      handle: 'Content Manager at HealthCare Connect',
+      name: 'Alex Rivera',
+      handle: 'Founder, IvyandZo.com',
       imageUrl: '/images/testimonial-3.jpg',
     },
   },
@@ -76,8 +88,7 @@ export default function PortfolioPage() {
         <div className="mx-auto max-w-2xl text-center mb-16">
           <h1 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">Our Work</h1>
           <p className="mt-2 text-lg leading-8 text-gray-600 dark:text-gray-300">
-            Discover how we've helped organizations achieve their content goals through strategic planning and exceptional
-            execution.
+            Discover how we've helped organizations achieve remarkable growth through strategic SEO, content marketing, and digital strategy.
           </p>
         </div>
 
@@ -86,11 +97,10 @@ export default function PortfolioPage() {
         <div className="mx-auto mt-32 max-w-7xl sm:mt-40">
           <div className="relative isolate overflow-hidden bg-brand-900 px-6 py-24 text-center shadow-2xl sm:rounded-3xl sm:px-16">
             <h2 className="mx-auto max-w-2xl text-3xl font-bold tracking-tight text-white sm:text-4xl">
-              Ready to transform your content strategy?
+              Ready to transform your digital presence?
             </h2>
             <p className="mx-auto mt-6 max-w-xl text-lg leading-8 text-gray-300">
-              Let's discuss how we can help you achieve your content goals and drive meaningful results for your
-              organization.
+              Let's discuss how our proven SEO and content strategies can drive meaningful results for your organization.
             </p>
             <div className="mt-10 flex items-center justify-center gap-x-6">
               <Link

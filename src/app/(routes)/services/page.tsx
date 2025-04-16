@@ -28,7 +28,7 @@ const tiers = [
       'Brand voice development',
       'Content creation and editing',
       'Content performance analysis',
-      'Content distribution strategy',
+      'Content marketing strategy',
       'Content optimization',
     ],
   },

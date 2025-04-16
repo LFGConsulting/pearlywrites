@@ -12,21 +12,21 @@ export default function AboutPage() {
             <div>
               <p>
                 PearlyWrites was founded with a clear vision: to help businesses and organizations communicate their message
-                effectively through exceptional content. What started as a freelance writing service has grown into a
-                comprehensive content strategy and development agency.
+                effectively through exceptional content and answer searchers' queries. What started as a freelance writing service has grown into a
+                comprehensive SEO marketing and content strategy agency.
               </p>
               <p className="mt-8">
-                Our approach combines deep industry knowledge with creative storytelling, ensuring that every piece of
-                content we create not only reaches its intended audience but also drives meaningful engagement and results.
+                Our approach combines deep SEO industry knowledge with creative storytelling, ensuring that every piece of content, 
+                social media post, and web page we create not only reaches its intended audience but also drives meaningful engagement and results.
               </p>
             </div>
             <div>
               <p>
-                We specialize in creating content that educates, inspires, and converts. From SEO-optimized web copy to
+                We specialize in creating content that educates, inspires, and converts. From SEO marketing to web copy to
                 comprehensive educational materials, our team brings expertise and creativity to every project.
               </p>
               <p className="mt-8">
-                Today, we're proud to work with clients across various industries, helping them achieve their content goals
+                Today, we're proud to work with clients across various industries, helping them achieve their SEO and content goals
                 and establish strong digital presences.
               </p>
             </div>
@@ -48,7 +48,7 @@ export default function AboutPage() {
         <div className="mx-auto max-w-2xl lg:mx-0">
           <h2 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">Our Leadership</h2>
           <p className="mt-6 text-lg leading-8 text-gray-600 dark:text-gray-300">
-            Meet the visionary behind PearlyWrites and learn about our commitment to excellence in content creation.
+            Meet the visionary behind PearlyWrites and learn about our commitment to excellence in SEO and content strategy.
           </p>
         </div>
         <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-3">
@@ -70,19 +70,19 @@ export default function AboutPage() {
             </div>
             <div className="mt-10 max-w-xl text-base leading-7 text-gray-700 dark:text-gray-300">
               <p>
-                Lisa Weinberger brings over 15 years of experience in content strategy, SEO, and educational publishing to
-                PearlyWrites. Her journey began in educational publishing, where she developed a deep understanding of how
-                to create content that effectively educates and engages readers.
+                Lisa Weinberger brings over 15 years of experience in SEO, content strategy, and digital marketing to
+                PearlyWrites. Her journey began in digital marketing, where she developed a deep understanding of how
+                to create content that not only educates and engages readers but also ranks well in search engines.
               </p>
               <p className="mt-8">
-                As the digital landscape evolved, Lisa recognized the growing need for high-quality, strategic content that
-                could help businesses stand out online. This insight led to the founding of PearlyWrites, where she has
-                helped numerous organizations achieve their content goals through strategic planning and exceptional
+                As search algorithms evolved, Lisa recognized the growing need for high-quality, strategic content that
+                could help businesses stand out in search results. This insight led to the founding of PearlyWrites, where she has
+                helped numerous organizations achieve their SEO goals through strategic content planning and exceptional
                 execution.
               </p>
               <p>
-                Lisa holds a Master&apos;s degree in Education and has been featured in various industry publications for her
-                innovative approaches to content strategy and SEO. She regularly speaks at industry conferences and
+                Lisa holds certifications in Advanced SEO and Digital Marketing, and has been featured in various industry publications for her
+                innovative approaches to content strategy and search optimization. She regularly speaks at SEO conferences and
                 contributes to leading digital marketing publications.
               </p>
             </div>
@@ -91,27 +91,27 @@ export default function AboutPage() {
             <h3 className="text-lg font-semibold leading-8 tracking-tight text-gray-900 dark:text-white">Expertise</h3>
             <div className="mt-10 space-y-8 text-base leading-7 text-gray-600 dark:text-gray-300">
               <div>
-                <h4 className="font-semibold text-gray-900 dark:text-white">Content Strategy</h4>
+                <h4 className="font-semibold text-gray-900 dark:text-white">SEO Strategy</h4>
                 <p className="mt-2">
-                  Developing comprehensive content strategies that align with business goals and drive measurable results.
+                  Developing comprehensive search optimization strategies that improve visibility and drive organic traffic.
                 </p>
               </div>
               <div>
-                <h4 className="font-semibold text-gray-900 dark:text-white">SEO & Digital Marketing</h4>
+                <h4 className="font-semibold text-gray-900 dark:text-white">Content Marketing</h4>
                 <p className="mt-2">
-                  Creating SEO-optimized content that ranks well and engages target audiences effectively.
+                  Creating strategic content that ranks well in search results while engaging target audiences effectively.
                 </p>
               </div>
               <div>
-                <h4 className="font-semibold text-gray-900 dark:text-white">Educational Publishing</h4>
+                <h4 className="font-semibold text-gray-900 dark:text-white">Technical SEO</h4>
                 <p className="mt-2">
-                  Producing educational materials that make complex topics accessible and engaging for learners.
+                  Optimizing website structure, performance, and content to maximize search engine visibility.
                 </p>
               </div>
               <div>
-                <h4 className="font-semibold text-gray-900 dark:text-white">Content Development</h4>
+                <h4 className="font-semibold text-gray-900 dark:text-white">Digital Marketing</h4>
                 <p className="mt-2">
-                  Writing and editing high-quality content across various formats and industries.
+                  Implementing comprehensive digital strategies across content, social media, and search marketing.
                 </p>
               </div>
             </div>

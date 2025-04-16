@@ -47,6 +47,8 @@ export function Hero({
               src="/pearlywriteshero.jpeg"
               alt="Creative workspace with colorful umbrellas and hanging lights"
               fill
+              sizes="(max-width: 768px) 100vw, 50vw"
+              quality={90}
               className="object-cover"
               priority
             />
