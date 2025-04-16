@@ -49,6 +49,6 @@ Welcome to your new modern website! This document walks you through how to manag
 
 ## 🆘 Support
 
-If you ever run into questions or want help with something, email us at **support@lfgconsulting.dev**.
+If you ever run into questions or want help with something, email us at **dave@lfgconsultants.com**.
 
 Welcome to your next-level publishing workflow!

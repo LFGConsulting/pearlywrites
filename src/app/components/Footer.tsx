@@ -11,15 +11,20 @@ export default function Footer() {
         <div className="xl:grid xl:grid-cols-3 xl:gap-8">
           {/* Brand Section */}
           <div className="space-y-8">
-            <Image
-              className="h-12 w-12"
-              src="/logo-just-P.png"
-              alt="PearlyWrites"
-              width={48}
-              height={48}
-              priority
-            />
-            <p className="text-sm leading-6 text-gray-600">
+            <div className="flex items-center gap-3">
+              <Image
+                className="h-12 w-12"
+                src="/logo-just-P.png"
+                alt="PearlyWrites"
+                width={48}
+                height={48}
+                priority
+              />
+              <span className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
+                PearlyWrites
+              </span>
+            </div>
+            <p className="text-sm leading-6 text-gray-600 dark:text-gray-400">
               Making the world better through strategic content and clear communication.
             </p>
             {/* Social Links */}
