@@ -18,10 +18,10 @@ export function Hero({
   className = '',
 }: HeroProps) {
   return (
-    <div className="relative overflow-hidden bg-gradient-to-b from-brand-50 to-white dark:from-brand-900 dark:to-gray-900">
+    <div className="relative overflow-hidden bg-gradient-to-b from-brand-50 to-white dark:from-gray-800 dark:to-gray-900">
       {/* Decorative elements */}
-      <div className="absolute inset-0 bg-grid-brand/[0.03] -z-10" />
-      <div className="absolute inset-y-0 right-0 w-1/2 bg-brand-50/20 dark:bg-brand-900/20 -z-10" />
+      <div className="absolute inset-0 bg-grid-brand/[0.03] dark:bg-grid-brand/[0.02] -z-10" />
+      <div className="absolute inset-y-0 right-0 w-1/2 bg-brand-50/20 dark:bg-brand-800/20 -z-10" />
       
       <Container className={`relative py-24 sm:py-32 ${className}`}>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -42,7 +42,7 @@ export function Hero({
             </div>
           </div>
           
-          <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl ring-1 ring-gray-900/10">
+          <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl ring-1 ring-gray-900/10 dark:ring-white/10">
             <Image
               src="/pearlywriteshero.jpeg"
               alt="Creative workspace with colorful umbrellas and hanging lights"
@@ -50,7 +50,7 @@ export function Hero({
               className="object-cover"
               priority
             />
-            <div className="absolute inset-0 bg-gradient-to-tr from-brand-500/20 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-tr from-brand-500/20 dark:from-brand-400/20 to-transparent" />
           </div>
         </div>
       </Container>

@@ -69,30 +69,30 @@ export default function ServicesPage() {
               key={tier.id}
               className={`rounded-3xl p-8 ring-1 ${
                 tier.featured 
-                  ? 'bg-brand-900 ring-brand-900 dark:bg-brand-800 dark:ring-brand-800' 
+                  ? 'bg-brand-900 ring-brand-900 dark:bg-brand-800 dark:ring-brand-700' 
                   : 'bg-white dark:bg-gray-800 ring-gray-200 dark:ring-gray-700'
               } xl:p-10`}
             >
               <div className="flex items-center justify-between gap-x-4">
                 <h3
                   className={`text-lg font-semibold leading-8 ${
-                    tier.featured ? 'text-white' : 'text-gray-900 dark:text-white'
+                    tier.featured ? 'text-white' : 'text-gray-900 dark:text-gray-100'
                   }`}
                 >
                   {tier.name}
                 </h3>
               </div>
-              <p className={`mt-4 text-sm leading-6 ${tier.featured ? 'text-gray-300' : 'text-gray-600 dark:text-gray-300'}`}>
+              <p className={`mt-4 text-sm leading-6 ${tier.featured ? 'text-gray-100' : 'text-gray-600 dark:text-gray-300'}`}>
                 {tier.description}
               </p>
               <ul
                 role="list"
-                className={`mt-8 space-y-3 text-sm leading-6 ${tier.featured ? 'text-gray-300' : 'text-gray-600 dark:text-gray-300'}`}
+                className={`mt-8 space-y-3 text-sm leading-6 ${tier.featured ? 'text-gray-100' : 'text-gray-600 dark:text-gray-300'}`}
               >
                 {tier.features.map((feature) => (
                   <li key={feature} className="flex gap-x-3">
                     <CheckIcon
-                      className={`h-6 w-5 flex-none ${tier.featured ? 'text-white' : 'text-brand-500 dark:text-brand-400'}`}
+                      className={`h-6 w-5 flex-none ${tier.featured ? 'text-brand-200' : 'text-brand-500 dark:text-brand-400'}`}
                       aria-hidden="true"
                     />
                     {feature}
@@ -103,7 +103,7 @@ export default function ServicesPage() {
                 href={tier.href}
                 className={`mt-8 block rounded-md px-3 py-2 text-center text-sm font-semibold leading-6 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 ${
                   tier.featured
-                    ? 'bg-white text-brand-900 hover:bg-gray-100 focus-visible:outline-white dark:hover:bg-gray-100'
+                    ? 'bg-white text-brand-900 hover:bg-gray-50 focus-visible:outline-white dark:hover:bg-gray-50'
                     : 'bg-brand-500 text-white hover:bg-brand-600 focus-visible:outline-brand-500 dark:bg-brand-400 dark:hover:bg-brand-500'
                 }`}
               >
