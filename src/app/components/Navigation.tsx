@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { Dialog } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import { ThemeToggle } from './ui/ThemeToggle'
@@ -24,9 +25,14 @@ export default function Navigation() {
         <div className="flex lg:flex-1">
           <Link href="/" className="-m-1.5 p-1.5">
             <span className="sr-only">PearlyWrites</span>
-            <span className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-              Pearly<span className="text-brand-500 dark:text-brand-400">Writes</span>
-            </span>
+            <Image
+              src="/logo-just-P.png"
+              alt="PearlyWrites"
+              width={40}
+              height={40}
+              className="h-10 w-10"
+              priority
+            />
           </Link>
         </div>
         <div className="flex lg:hidden">
@@ -60,9 +66,14 @@ export default function Navigation() {
           <div className="flex items-center justify-between">
             <Link href="/" className="-m-1.5 p-1.5">
               <span className="sr-only">PearlyWrites</span>
-              <span className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                Pearly<span className="text-brand-500 dark:text-brand-400">Writes</span>
-              </span>
+              <Image
+                src="/logo-just-P.png"
+                alt="PearlyWrites"
+                width={40}
+                height={40}
+                className="h-10 w-10"
+                priority
+              />
             </Link>
             <button
               type="button"

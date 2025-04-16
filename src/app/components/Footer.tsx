@@ -13,7 +13,7 @@ export default function Footer() {
           <div className="space-y-8">
             <Image
               className="h-12 w-12"
-              src="/pearlywrites-logo.jpeg"
+              src="/logo-just-P.png"
               alt="PearlyWrites"
               width={48}
               height={48}
