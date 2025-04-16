@@ -11,7 +11,7 @@
   "dependencies": {
     "@headlessui/react": "^2.2.0",
     "@heroicons/react": "^2.2.0",
-    "@tryghost/content-api": "^1.11.21",
+    "@tryghost/content-api": "^1.11.22",
     "framer-motion": "^12.6.2",
     "next": "15.2.4",
     "react": "^19.0.0",
