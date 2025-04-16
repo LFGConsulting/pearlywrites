@@ -1,8 +1,9 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { Metadata } from 'next'
-import { getAllPosts, getAllTags } from '@/lib/ghost/utils'
-import { formatDate } from '@/lib/utils'
+import { getAllPosts, getAllTags } from '@/app/lib/ghost/utils'
+import { GhostTag, GhostPost } from '@/app/lib/ghost/client'
+import { formatDate } from '@/app/lib/utils'
 
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(' ')
@@ -28,7 +29,7 @@ export default async function BlogPage() {
     { name: 'All', href: '/blog', current: true },
     ...tags
       .filter(tag => !tag.name.startsWith('#'))
-      .map(tag => ({
+      .map((tag: GhostTag) => ({
         name: tag.name,
         href: `/blog/tag/${tag.slug}`,
         current: false
@@ -64,7 +65,7 @@ export default async function BlogPage() {
           </div>
 
           <div className="grid grid-cols-1 gap-x-8 gap-y-12 lg:grid-cols-3">
-            {posts.map((post, index) => (
+            {posts.map((post: GhostPost, index: number) => (
               <article key={post.id} className="flex flex-col items-start">
                 <div className="relative w-full">
                   <Image
