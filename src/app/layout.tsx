@@ -12,11 +12,10 @@ export const metadata: Metadata = {
   description: "Professional SEO, content development, content marketing, and strategy services for businesses of all sizes.",
   icons: {
     icon: [
-      { url: '/logo-just-P.png', type: 'image/png' },
       { url: '/favicon.ico', sizes: 'any' }
     ],
     apple: [
-      { url: '/logo-just-P.png' }
+      { url: '/apple-touch-icon.png', sizes: '180x180' }
     ]
   }
 };
