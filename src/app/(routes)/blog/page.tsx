@@ -1,9 +1,9 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { Metadata } from 'next'
-import { getAllPosts, getAllTags } from '@/lib/ghost/utils'
-import { GhostTag, GhostPost } from '@/lib/ghost/client'
-import { formatDate } from '@/lib/utils'
+import { getAllPosts, getAllTags } from '@/app/lib/ghost/utils'
+import { GhostTag, GhostPost } from '@/app/lib/ghost/client'
+import { formatDate } from '@/app/lib/utils'
 
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(' ')
