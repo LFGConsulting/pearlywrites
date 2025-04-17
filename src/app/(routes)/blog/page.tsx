@@ -4,6 +4,7 @@ import { Metadata } from 'next'
 import { getAllPosts, getAllTags } from '@/lib/ghost/utils'
 import { GhostTag, GhostPost } from '@/lib/ghost/client'
 import { formatDate } from '@/lib/utils'
+import ResponsiveImage from '@/components/ResponsiveImage'
 
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(' ')
@@ -68,21 +69,11 @@ export default async function BlogPage() {
             {posts.map((post: GhostPost, index: number) => (
               <article key={post.id} className="flex flex-col items-start">
                 {post.feature_image ? (
-                  <div className="relative w-full aspect-[16/9] mb-4">
-                    <Image
-                      src={post.feature_image}
-                      alt={post.feature_image_alt || post.title}
-                      fill
-                      className="object-cover rounded-lg"
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                      onError={(e) => {
-                        console.error('Blog listing - Image failed to load:', {
-                          src: post.feature_image,
-                          error: e
-                        });
-                      }}
-                    />
-                  </div>
+                  <ResponsiveImage
+                    src={post.feature_image}
+                    alt={post.feature_image_alt || post.title}
+                    variant="card"
+                  />
                 ) : (
                   <div className="relative w-full aspect-[16/9] mb-4 bg-gray-100 rounded-lg" />
                 )}
@@ -113,12 +104,10 @@ export default async function BlogPage() {
                   </div>
                   {post.primary_author && (
                     <div className="relative mt-8 flex items-center gap-x-4">
-                      <Image
+                      <ResponsiveImage
                         src={post.primary_author.profile_image || '/images/placeholder-author.jpg'}
                         alt={post.primary_author.name}
-                        className="h-10 w-10 rounded-full bg-gray-100"
-                        width={40}
-                        height={40}
+                        variant="author"
                       />
                       <div className="text-sm leading-6">
                         <p className="font-semibold text-gray-900 dark:text-white">
