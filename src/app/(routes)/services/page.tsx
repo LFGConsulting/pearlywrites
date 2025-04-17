@@ -67,7 +67,7 @@ export default function ServicesPage() {
           {tiers.map((tier) => (
             <div
               key={tier.id}
-              className={`rounded-3xl p-8 ring-1 ${
+              className={`rounded-3xl p-8 ring-1 flex flex-col ${
                 tier.featured 
                   ? 'bg-brand-900 ring-brand-900 dark:bg-brand-800 dark:ring-brand-700' 
                   : 'bg-white dark:bg-gray-800 ring-gray-200 dark:ring-gray-700'
@@ -101,11 +101,7 @@ export default function ServicesPage() {
               </ul>
               <Link
                 href={tier.href}
-                className={`mt-8 block rounded-md px-3 py-2 text-center text-sm font-semibold leading-6 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 ${
-                  tier.featured
-                    ? 'bg-white text-brand-900 hover:bg-gray-50 focus-visible:outline-white dark:hover:bg-gray-50'
-                    : 'bg-brand-500 text-white hover:bg-brand-600 focus-visible:outline-brand-500 dark:bg-brand-400 dark:hover:bg-brand-500'
-                }`}
+                className="mt-auto pt-8 block rounded-md px-3 py-2 text-center text-sm font-semibold leading-6 bg-brand-500 text-white hover:bg-brand-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-500 dark:bg-brand-400 dark:hover:bg-brand-500"
               >
                 Get started
               </Link>
