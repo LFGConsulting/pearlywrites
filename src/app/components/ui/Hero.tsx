@@ -1,6 +1,5 @@
 import { Container } from './Container'
 import { Button } from './Button'
-import Image from 'next/image'
 
 interface HeroProps {
   title?: string
@@ -42,15 +41,13 @@ export function Hero({
             </div>
           </div>
           
-          {/* Simplified image container */}
-          <div className="relative w-full h-[350px] rounded-2xl overflow-hidden">
-            <Image
-              src="/pearlywriteshero.jpeg"
+          {/* Test with direct img tag */}
+          <div className="relative w-full h-[350px] rounded-2xl overflow-hidden bg-gray-100">
+            <img
+              src="/_next/image?url=%2Fpearlywriteshero.jpeg&w=1920&q=75"
               alt="Creative workspace with colorful umbrellas and hanging lights"
-              fill
-              priority
-              className="object-cover"
-              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 80vw"
+              className="absolute inset-0 w-full h-full object-cover"
+              loading="eager"
             />
             <div className="absolute inset-0 bg-gradient-to-tr from-brand-500/20 dark:from-brand-400/20 to-transparent" />
           </div>
