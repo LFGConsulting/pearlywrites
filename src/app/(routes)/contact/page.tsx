@@ -1,8 +1,74 @@
+'use client'
+
+import { useState, FormEvent } from 'react'
 import { EnvelopeIcon, PhoneIcon } from '@heroicons/react/24/outline'
 import { Container } from '../../components/ui'
 import { Button } from '../../components/ui/Button'
 
+interface FormData {
+  firstName: string
+  lastName: string
+  email: string
+  company: string
+  message: string
+}
+
+const initialFormData: FormData = {
+  firstName: '',
+  lastName: '',
+  email: '',
+  company: '',
+  message: ''
+}
+
+// Replace this with your Formspree form ID
+const FORMSPREE_FORM_ID = 'YOUR_FORM_ID'
+
 export default function ContactPage() {
+  const [formData, setFormData] = useState<FormData>(initialFormData)
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
+
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    setIsSubmitting(true)
+    setSubmitStatus('idle')
+
+    try {
+      const response = await fetch(`https://formspree.io/f/${FORMSPREE_FORM_ID}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          name: `${formData.firstName} ${formData.lastName}`,
+          email: formData.email,
+          company: formData.company,
+          message: formData.message
+        }),
+      })
+
+      if (!response.ok) throw new Error('Failed to submit form')
+      
+      setSubmitStatus('success')
+      setFormData(initialFormData)
+    } catch (error) {
+      console.error('Form submission error:', error)
+      setSubmitStatus('error')
+    } finally {
+      setIsSubmitting(false)
+    }
+  }
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }))
+  }
+
   return (
     <div className="relative isolate bg-white dark:bg-gray-900">
       <Container>
@@ -63,33 +129,39 @@ export default function ContactPage() {
               </dl>
             </div>
           </div>
-          <form action="#" method="POST" className="px-6 pb-24 pt-20 sm:pb-32 lg:px-8 lg:py-48">
+          <form onSubmit={handleSubmit} className="px-6 pb-24 pt-20 sm:pb-32 lg:px-8 lg:py-48">
             <div className="mx-auto max-w-xl lg:mr-0 lg:max-w-lg">
               <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
                 <div>
-                  <label htmlFor="first-name" className="block text-sm font-semibold leading-6 text-gray-900 dark:text-white">
+                  <label htmlFor="firstName" className="block text-sm font-semibold leading-6 text-gray-900 dark:text-white">
                     First name
                   </label>
                   <div className="mt-2.5">
                     <input
                       type="text"
-                      name="first-name"
-                      id="first-name"
+                      name="firstName"
+                      id="firstName"
+                      value={formData.firstName}
+                      onChange={handleInputChange}
                       autoComplete="given-name"
+                      required
                       className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 dark:text-white shadow-sm ring-1 ring-inset ring-gray-300 dark:ring-gray-700 placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:ring-2 focus:ring-inset focus:ring-brand-500 dark:focus:ring-brand-400 bg-white dark:bg-gray-800 sm:text-sm sm:leading-6"
                     />
                   </div>
                 </div>
                 <div>
-                  <label htmlFor="last-name" className="block text-sm font-semibold leading-6 text-gray-900 dark:text-white">
+                  <label htmlFor="lastName" className="block text-sm font-semibold leading-6 text-gray-900 dark:text-white">
                     Last name
                   </label>
                   <div className="mt-2.5">
                     <input
                       type="text"
-                      name="last-name"
-                      id="last-name"
+                      name="lastName"
+                      id="lastName"
+                      value={formData.lastName}
+                      onChange={handleInputChange}
                       autoComplete="family-name"
+                      required
                       className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 dark:text-white shadow-sm ring-1 ring-inset ring-gray-300 dark:ring-gray-700 placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:ring-2 focus:ring-inset focus:ring-brand-500 dark:focus:ring-brand-400 bg-white dark:bg-gray-800 sm:text-sm sm:leading-6"
                     />
                   </div>
@@ -103,7 +175,10 @@ export default function ContactPage() {
                       type="email"
                       name="email"
                       id="email"
+                      value={formData.email}
+                      onChange={handleInputChange}
                       autoComplete="email"
+                      required
                       className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 dark:text-white shadow-sm ring-1 ring-inset ring-gray-300 dark:ring-gray-700 placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:ring-2 focus:ring-inset focus:ring-brand-500 dark:focus:ring-brand-400 bg-white dark:bg-gray-800 sm:text-sm sm:leading-6"
                     />
                   </div>
@@ -117,6 +192,8 @@ export default function ContactPage() {
                       type="text"
                       name="company"
                       id="company"
+                      value={formData.company}
+                      onChange={handleInputChange}
                       autoComplete="organization"
                       className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 dark:text-white shadow-sm ring-1 ring-inset ring-gray-300 dark:ring-gray-700 placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:ring-2 focus:ring-inset focus:ring-brand-500 dark:focus:ring-brand-400 bg-white dark:bg-gray-800 sm:text-sm sm:leading-6"
                     />
@@ -130,16 +207,32 @@ export default function ContactPage() {
                     <textarea
                       name="message"
                       id="message"
+                      value={formData.message}
+                      onChange={handleInputChange}
                       rows={4}
+                      required
                       className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 dark:text-white shadow-sm ring-1 ring-inset ring-gray-300 dark:ring-gray-700 placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:ring-2 focus:ring-inset focus:ring-brand-500 dark:focus:ring-brand-400 bg-white dark:bg-gray-800 sm:text-sm sm:leading-6"
-                      defaultValue={''}
                     />
                   </div>
                 </div>
               </div>
+              {submitStatus === 'success' && (
+                <div className="mt-4 text-sm text-green-600 dark:text-green-400">
+                  Thank you! We'll be in touch soon.
+                </div>
+              )}
+              {submitStatus === 'error' && (
+                <div className="mt-4 text-sm text-red-600 dark:text-red-400">
+                  Something went wrong. Please try again.
+                </div>
+              )}
               <div className="mt-8 flex justify-end">
-                <Button onClick={() => {}} size="lg">
-                  Send message
+                <Button 
+                  type="submit" 
+                  size="lg"
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? 'Sending...' : 'Send message'}
                 </Button>
               </div>
             </div>

@@ -1,3 +1,5 @@
+'use client'
+
 import Link from 'next/link'
 import { ReactNode } from 'react'
 
@@ -8,6 +10,8 @@ interface ButtonProps {
   href?: string
   onClick?: () => void
   className?: string
+  type?: 'button' | 'submit' | 'reset'
+  disabled?: boolean
 }
 
 export function Button({ 
@@ -16,7 +20,9 @@ export function Button({
   size = 'md',
   href, 
   onClick, 
-  className = '' 
+  className = '',
+  type = 'button',
+  disabled = false
 }: ButtonProps) {
   const variants = {
     default: 'bg-brand-500 text-white hover:bg-brand-600 dark:bg-brand-400 dark:hover:bg-brand-300',
@@ -41,7 +47,7 @@ export function Button({
   }
 
   return (
-    <button onClick={onClick} className={styles}>
+    <button type={type} onClick={onClick} className={styles}>
       {children}
     </button>
   )

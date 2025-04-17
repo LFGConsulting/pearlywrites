@@ -1,13 +1,13 @@
 # ✨ PearlyWrites Website: CMS Access & Publishing Guide
 
-Welcome to your new modern website! This document walks you through how to manage your blog and site content using **Ghost CMS**. We’ve designed everything so that you can focus on writing—not tech headaches.
+Welcome to your new modern website! This document walks you through how to manage your blog and site content using **Ghost CMS**. We've designed everything so that you can focus on writing—not tech headaches.
 
 ---
 
 ## 🔐 Accessing Your Ghost Admin
 
 1. Go to: **https://pearlywrites.ghost.io/ghost**
-2. Log in using your credentials (you’ll receive an invite from us—check your inbox).
+2. Log in using your credentials (you'll receive an invite from us—check your inbox).
 3. Bookmark the admin panel for quick access.
 
 ---
@@ -50,5 +50,27 @@ Welcome to your new modern website! This document walks you through how to manag
 ## 🆘 Support
 
 If you ever run into questions or want help with something, email us at **dave@lfgconsultants.com**.
+
+---
+
+## 📨 Setting Up Contact Form (Formspree)
+
+Your contact form is powered by Formspree. To activate it:
+
+1. Go to **https://formspree.io/** and sign up for an account
+2. Click **"New Form"** and choose a name (e.g., "PearlyWrites Contact")
+3. Select the **"Basic"** plan (free) to start
+4. Copy your form's unique **ID** (looks like `xrgdkpaz`)
+5. Send the ID to your developer to activate the form
+
+What you'll get:
+- Email notifications for each form submission
+- Spam protection
+- Access to a dashboard of all submissions
+- GDPR compliance out of the box
+
+> 💡 The form will appear to work on the site but won't send emails until properly configured with your Formspree ID.
+
+---
 
 Welcome to your next-level publishing workflow!
