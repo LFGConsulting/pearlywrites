@@ -5,6 +5,16 @@ const nextConfig = {
     // your project has ESLint errors.
     ignoreDuringBuilds: true,
   },
+  images: {
+    domains: ['seo-and-content-strategy.ghost.io'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'seo-and-content-strategy.ghost.io',
+        pathname: '/**',
+      },
+    ],
+  },
 }
 
 export default nextConfig 

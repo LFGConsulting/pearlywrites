@@ -35,6 +35,7 @@ export interface GhostPost {
   html: string;
   excerpt: string;
   feature_image: string | null;
+  feature_image_alt: string | null;
   featured: boolean;
   published_at: string;
   updated_at: string;
