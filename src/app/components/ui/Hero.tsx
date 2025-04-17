@@ -41,15 +41,15 @@ export function Hero({
             </div>
           </div>
           
-          {/* Test with direct img tag */}
-          <div className="relative w-full h-[350px] rounded-2xl overflow-hidden bg-gray-100">
-            <img
-              src="/_next/image?url=%2Fpearlywriteshero.jpeg&w=1920&q=75"
-              alt="Creative workspace with colorful umbrellas and hanging lights"
-              className="absolute inset-0 w-full h-full object-cover"
-              loading="eager"
+          {/* Absolute simplest image test */}
+          <div className="w-full h-[350px] bg-red-100">
+            <img 
+              src="/pearlywriteshero.jpeg"
+              width={800}
+              height={350}
+              alt="Test"
+              style={{border: '5px solid red'}}
             />
-            <div className="absolute inset-0 bg-gradient-to-tr from-brand-500/20 dark:from-brand-400/20 to-transparent" />
           </div>
         </div>
       </Container>
