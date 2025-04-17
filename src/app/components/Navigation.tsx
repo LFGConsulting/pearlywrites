@@ -5,7 +5,8 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { Dialog } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
-import { ThemeToggle } from './ui/ThemeToggle'
+import { Container } from './ui'
+import { Button } from './ui/Button'
 
 const navigation = [
   { name: 'Home', href: '/' },
@@ -59,9 +60,6 @@ export default function Navigation() {
             </Link>
           ))}
         </div>
-        <div className="hidden lg:flex lg:flex-1 lg:justify-end lg:gap-x-4">
-          <ThemeToggle />
-        </div>
       </nav>
       <Dialog as="div" className="lg:hidden" open={mobileMenuOpen} onClose={setMobileMenuOpen}>
         <div className="fixed inset-0 z-50" />
@@ -103,11 +101,6 @@ export default function Navigation() {
                     {item.name}
                   </Link>
                 ))}
-              </div>
-              <div className="py-6">
-                <div className="flex items-center justify-end">
-                  <ThemeToggle />
-                </div>
               </div>
             </div>
           </div>
