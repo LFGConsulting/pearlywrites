@@ -6,12 +6,26 @@ const nextConfig = {
     ignoreDuringBuilds: true,
   },
   images: {
-    domains: ['seo-and-content-strategy.ghost.io'],
+    domains: [
+      'seo-and-content-strategy.ghost.io',
+      'www.gravatar.com',
+      'static.ghost.org'
+    ],
     remotePatterns: [
       {
         protocol: 'https',
         hostname: 'seo-and-content-strategy.ghost.io',
         pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'www.gravatar.com',
+        pathname: '/avatar/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'static.ghost.org',
+        pathname: '/v4.0.0/images/**',
       },
     ],
   },
