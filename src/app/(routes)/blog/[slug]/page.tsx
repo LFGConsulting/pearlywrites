@@ -4,6 +4,7 @@ import { getPostBySlug } from '@/lib/ghost/utils'
 import { formatDate } from '@/lib/utils'
 import GhostContent from '@/components/GhostContent'
 import ResponsiveImage from '@/components/ResponsiveImage'
+import { getImageUrl } from '@/lib/ghost/client'
 
 type PageProps = {
   params: Promise<{ slug: string }>
@@ -28,7 +29,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       title: post.title,
       description: post.excerpt || post.custom_excerpt || post.meta_description || '',
       type: 'article',
-      images: post.feature_image ? [{ url: post.feature_image }] : [],
+      images: post.feature_image ? [{ url: getImageUrl(post.feature_image) }] : [],
     },
   }
 }
@@ -55,17 +56,6 @@ export default async function BlogPost({ params }: PageProps) {
       </div>
     )
   }
-
-  // Ensure image URLs are absolute
-  const featureImage = post.feature_image?.startsWith('http') 
-    ? post.feature_image 
-    : `https://seo-and-content-strategy.ghost.io${post.feature_image}`;
-    
-  const authorImage = post.primary_author?.profile_image?.startsWith('http')
-    ? post.primary_author.profile_image
-    : post.primary_author?.profile_image 
-      ? `https://seo-and-content-strategy.ghost.io${post.primary_author.profile_image}`
-      : null;
 
   return (
     <div className="bg-white dark:bg-gray-900">
@@ -96,9 +86,9 @@ export default async function BlogPost({ params }: PageProps) {
 
             {post.primary_author && (
               <div className="mt-8 flex items-center gap-x-4">
-                {authorImage && (
+                {post.primary_author.profile_image && (
                   <ResponsiveImage
-                    src={authorImage}
+                    src={getImageUrl(post.primary_author.profile_image)}
                     alt={post.primary_author.name}
                     variant="author"
                   />
@@ -116,9 +106,9 @@ export default async function BlogPost({ params }: PageProps) {
           </header>
 
           {/* Feature Image */}
-          {featureImage && (
+          {post.feature_image && (
             <ResponsiveImage
-              src={featureImage}
+              src={getImageUrl(post.feature_image)}
               alt={post.feature_image_alt || post.title}
               variant="feature"
               priority

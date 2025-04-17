@@ -28,16 +28,16 @@ export default function ResponsiveImage({
         };
       case 'card':
         return {
-          wrapperClass: 'relative w-full aspect-[16/9]',
-          imageClass: `object-cover rounded-lg ${className}`,
+          wrapperClass: 'relative w-full pb-[56.25%]', // 16:9 aspect ratio
+          imageClass: `absolute inset-0 object-cover rounded-lg ${className}`,
           sizes: '(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw',
           fallback: '/images/placeholder-card.jpg'
         };
       case 'feature':
       default:
         return {
-          wrapperClass: 'relative w-full aspect-[2/1] md:aspect-[21/9]',
-          imageClass: `object-cover rounded-lg ${className}`,
+          wrapperClass: 'relative w-full pb-[50%] md:pb-[42.86%]', // 2:1 and 21:9 aspect ratios
+          imageClass: `absolute inset-0 object-cover rounded-lg ${className}`,
           sizes: '(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 80vw',
           fallback: '/images/placeholder-feature.jpg'
         };
@@ -59,7 +59,6 @@ export default function ResponsiveImage({
         blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDABQODxIPDRQSEBIXFRQdHx4eHRoaHSQtJSEkMjU1LS0yMi4qLjgyPjA+OjU6PjIyRkU/QUJHSkdGUjpFRkL/2wBDAR8XFx4aHR4pISE+MSsuMT4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj7/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAb/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABmX/9k="
         style={{ 
           objectFit: 'cover',
-          // Add fallback background color
           backgroundColor: 'rgb(243 244 246)'
         }}
       />

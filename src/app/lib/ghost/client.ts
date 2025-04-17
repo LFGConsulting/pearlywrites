@@ -8,8 +8,11 @@ if (!ghostUrl || !ghostKey) {
   throw new Error('Ghost URL and Content API Key must be provided');
 }
 
+// Remove trailing slash if present from the validated URL
+const baseGhostUrl = ghostUrl.replace(/\/$/, '');
+
 // Debug logging for Ghost configuration
-console.log('Ghost URL:', process.env.NEXT_PUBLIC_GHOST_URL);
+console.log('Ghost URL:', baseGhostUrl);
 
 // Initialize Ghost Content API client
 export const ghostClient = new GhostContentAPI({
@@ -21,12 +24,22 @@ export const ghostClient = new GhostContentAPI({
 // Utility function to ensure we always have an image URL
 export function getImageUrl(imageUrl: string | null): string {
   console.log('Processing image URL:', { input: imageUrl });
+  
   if (!imageUrl) {
     console.log('No image URL provided, using placeholder');
     return '/images/placeholder-post.svg';
   }
-  console.log('Returning processed image URL:', imageUrl);
-  return imageUrl;
+
+  // If it's already an absolute URL, return it as is
+  if (imageUrl.startsWith('http://') || imageUrl.startsWith('https://')) {
+    console.log('Absolute URL detected, returning as is:', imageUrl);
+    return imageUrl;
+  }
+
+  // If it's a relative URL, make it absolute using the Ghost URL
+  const absoluteUrl = `${baseGhostUrl}${imageUrl.startsWith('/') ? '' : '/'}${imageUrl}`;
+  console.log('Converted to absolute URL:', absoluteUrl);
+  return absoluteUrl;
 }
 
 // Add debug wrapper for post fetching
