@@ -3,6 +3,7 @@ import { Metadata } from 'next'
 import { getPostBySlug } from '@/lib/ghost/utils'
 import { formatDate } from '@/lib/utils'
 import GhostContent from '@/components/GhostContent'
+import GhostImage from '@/components/GhostImage'
 
 type PageProps = {
   params: Promise<{ slug: string }>
@@ -115,24 +116,11 @@ export default async function BlogPost({ params }: PageProps) {
 
           {/* Feature Image */}
           {post.feature_image && (
-            <div className="relative w-full h-[400px] mb-8">
-              <Image
-                src={post.feature_image}
-                alt={post.feature_image_alt || post.title}
-                fill
-                className="object-cover"
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                onError={(e) => {
-                  console.error('Image failed to load:', {
-                    src: post.feature_image,
-                    error: e
-                  });
-                  // Optionally set a fallback image
-                  // e.currentTarget.src = '/placeholder.jpg';
-                }}
-                priority
-              />
-            </div>
+            <GhostImage
+              src={post.feature_image}
+              alt={post.feature_image_alt || post.title}
+              priority
+            />
           )}
 
           {/* Content */}
