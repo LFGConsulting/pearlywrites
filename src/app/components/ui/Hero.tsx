@@ -18,15 +18,15 @@ export function Hero({
 }: HeroProps) {
   return (
     <div className="relative min-h-[600px] bg-gray-900">
-      {/* Background image */}
+      {/* Background image - increase visibility by reducing opacity */}
       <img 
         src="/pearlywriteshero.jpeg"
         alt="Creative workspace with colorful umbrellas and hanging lights"
-        className="absolute inset-0 w-full h-full object-cover opacity-50"
+        className="absolute inset-0 w-full h-full object-cover opacity-70"
       />
       
-      {/* Gradient overlay - darker at the bottom for better text contrast */}
-      <div className="absolute inset-0 bg-gradient-to-b from-gray-900/70 to-gray-900/95" />
+      {/* Gradient overlay - lighter gradient for better image visibility */}
+      <div className="absolute inset-0 bg-gradient-to-b from-gray-900/40 to-gray-900/80" />
       
       {/* Content */}
       <Container className={`relative py-24 sm:py-32 ${className}`}>
