@@ -23,10 +23,18 @@ export async function getAllPosts(options: BrowseOptions = {}): Promise<GhostPos
 
 export async function getPostBySlug(slug: string): Promise<GhostPost | null> {
   try {
-    return await ghostClient.posts.read({
+    const post = await ghostClient.posts.read({
       slug,
       include: ['tags', 'authors'],
     });
+    console.log('Post data from Ghost:', {
+      slug,
+      title: post.title,
+      feature_image: post.feature_image,
+      feature_image_alt: post.feature_image_alt,
+      html: post.html?.substring(0, 100) + '...' // First 100 chars of content
+    });
+    return post;
   } catch (err) {
     console.error('Error fetching post by slug:', err);
     return null;

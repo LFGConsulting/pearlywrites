@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="630" fill="#F3F4F6"/>
+  <path d="M600 315m-120 0a120 120 0 1 0 240 0a120 120 0 1 0 -240 0" fill="#E5E7EB"/>
+  <path d="M600 275a40 40 0 1 0 0-80 40 40 0 0 0 0 80zM520 395c0-44.183 35.817-80 80-80s80 35.817 80 80" stroke="#9CA3AF" stroke-width="20" stroke-linecap="round"/>
+  <text x="600" y="500" font-family="system-ui, -apple-system" font-size="32" fill="#6B7280" text-anchor="middle">Image Coming Soon</text>
+</svg> 

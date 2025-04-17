@@ -1,6 +1,6 @@
-import Image from 'next/image'
 import { Container } from './Container'
 import { Button } from './Button'
+import ResponsiveImage from '../ResponsiveImage'
 
 interface HeroProps {
   title?: string
@@ -43,14 +43,12 @@ export function Hero({
           </div>
           
           <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl ring-1 ring-gray-900/10 dark:ring-white/10">
-            <Image
+            <ResponsiveImage
               src="/pearlywriteshero.jpeg"
               alt="Creative workspace with colorful umbrellas and hanging lights"
-              fill
-              sizes="(max-width: 768px) 100vw, 50vw"
-              quality={90}
-              className="object-cover"
               priority
+              variant="feature"
+              className="!mb-0"
             />
             <div className="absolute inset-0 bg-gradient-to-tr from-brand-500/20 dark:from-brand-400/20 to-transparent" />
           </div>

@@ -18,17 +18,34 @@ export const ghostClient = new GhostContentAPI({
   version: 'v5.0'
 });
 
+// Utility function to ensure we always have an image URL
+export function getImageUrl(imageUrl: string | null): string {
+  console.log('Processing image URL:', { input: imageUrl });
+  if (!imageUrl) {
+    console.log('No image URL provided, using placeholder');
+    return '/images/placeholder-post.svg';
+  }
+  console.log('Returning processed image URL:', imageUrl);
+  return imageUrl;
+}
+
 // Add debug wrapper for post fetching
 const originalGetPost = ghostClient.posts.read.bind(ghostClient.posts);
 ghostClient.posts.read = async function(...args: Parameters<typeof originalGetPost>) {
   const post = await originalGetPost(...args);
+  const postWithPlaceholder = {
+    ...post,
+    feature_image: getImageUrl(post.feature_image),
+    og_image: getImageUrl(post.og_image),
+    twitter_image: getImageUrl(post.twitter_image)
+  };
   console.log('Raw Ghost Post Data:', {
-    title: post.title,
-    feature_image: post.feature_image,
-    feature_image_alt: post.feature_image_alt,
-    url: post.url
+    title: postWithPlaceholder.title,
+    feature_image: postWithPlaceholder.feature_image,
+    feature_image_alt: postWithPlaceholder.feature_image_alt,
+    url: postWithPlaceholder.url
   });
-  return post;
+  return postWithPlaceholder;
 }
 
 // Type definitions for Ghost content

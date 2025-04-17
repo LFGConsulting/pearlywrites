@@ -3,7 +3,7 @@ import { Metadata } from 'next'
 import { getPostBySlug } from '@/lib/ghost/utils'
 import { formatDate } from '@/lib/utils'
 import GhostContent from '@/components/GhostContent'
-import GhostImage from '@/components/GhostImage'
+import ResponsiveImage from '@/components/ResponsiveImage'
 
 type PageProps = {
   params: Promise<{ slug: string }>
@@ -56,11 +56,16 @@ export default async function BlogPost({ params }: PageProps) {
     )
   }
 
-  // Debug logging for image URLs
-  console.log('Feature Image URL:', post.feature_image);
-  if (post.primary_author) {
-    console.log('Author Profile Image URL:', post.primary_author.profile_image);
-  }
+  // Ensure image URLs are absolute
+  const featureImage = post.feature_image?.startsWith('http') 
+    ? post.feature_image 
+    : `https://seo-and-content-strategy.ghost.io${post.feature_image}`;
+    
+  const authorImage = post.primary_author?.profile_image?.startsWith('http')
+    ? post.primary_author.profile_image
+    : post.primary_author?.profile_image 
+      ? `https://seo-and-content-strategy.ghost.io${post.primary_author.profile_image}`
+      : null;
 
   return (
     <div className="bg-white dark:bg-gray-900">
@@ -91,16 +96,12 @@ export default async function BlogPost({ params }: PageProps) {
 
             {post.primary_author && (
               <div className="mt-8 flex items-center gap-x-4">
-                {post.primary_author.profile_image && (
-                  <div className="relative h-10 w-10">
-                    <Image
-                      src={post.primary_author.profile_image}
-                      alt={post.primary_author.name}
-                      className="rounded-full bg-gray-100"
-                      fill
-                      sizes="40px"
-                    />
-                  </div>
+                {authorImage && (
+                  <ResponsiveImage
+                    src={authorImage}
+                    alt={post.primary_author.name}
+                    variant="author"
+                  />
                 )}
                 <div className="text-sm leading-6">
                   <p className="font-semibold text-gray-900 dark:text-white">
@@ -115,10 +116,11 @@ export default async function BlogPost({ params }: PageProps) {
           </header>
 
           {/* Feature Image */}
-          {post.feature_image && (
-            <GhostImage
-              src={post.feature_image}
+          {featureImage && (
+            <ResponsiveImage
+              src={featureImage}
               alt={post.feature_image_alt || post.title}
+              variant="feature"
               priority
             />
           )}
