@@ -22,11 +22,11 @@ export function Hero({
       <img 
         src="/pearlywriteshero.jpeg"
         alt="Creative workspace with colorful umbrellas and hanging lights"
-        className="absolute inset-0 w-full h-full object-cover opacity-70"
+        className="absolute inset-0 w-full h-full object-cover opacity-80"
       />
       
       {/* Gradient overlay - lighter gradient for better image visibility */}
-      <div className="absolute inset-0 bg-gradient-to-b from-gray-900/40 to-gray-900/80" />
+      <div className="absolute inset-0 bg-gradient-to-b from-gray-900/20 to-gray-900/50" />
       
       {/* Content */}
       <Container className={`relative py-24 sm:py-32 ${className}`}>
