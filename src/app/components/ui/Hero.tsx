@@ -43,7 +43,7 @@ export function Hero({
           </div>
           
           <div className="relative rounded-2xl overflow-hidden shadow-2xl ring-1 ring-gray-900/10 dark:ring-white/10">
-            <div className="relative aspect-[2/1] md:aspect-[21/9]">
+            <div className="relative aspect-[2/1] md:aspect-[21/9] z-0">
               <Image
                 src="/pearlywriteshero.jpeg"
                 alt="Creative workspace with colorful umbrellas and hanging lights"
@@ -53,7 +53,7 @@ export function Hero({
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 80vw"
               />
             </div>
-            <div className="absolute inset-0 bg-gradient-to-tr from-brand-500/20 dark:from-brand-400/20 to-transparent pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-tr from-brand-500/20 dark:from-brand-400/20 to-transparent pointer-events-none z-10" />
           </div>
         </div>
       </Container>
