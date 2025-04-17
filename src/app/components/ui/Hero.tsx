@@ -43,13 +43,15 @@ export function Hero({
           </div>
           
           <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl ring-1 ring-gray-900/10 dark:ring-white/10">
-            <ResponsiveImage
-              src="/pearlywriteshero.jpeg"
-              alt="Creative workspace with colorful umbrellas and hanging lights"
-              priority
-              variant="feature"
-              className="!mb-0"
-            />
+            <div className="absolute inset-0">
+              <ResponsiveImage
+                src="/pearlywriteshero.jpeg"
+                alt="Creative workspace with colorful umbrellas and hanging lights"
+                priority
+                variant="feature"
+                className="!mb-0"
+              />
+            </div>
             <div className="absolute inset-0 bg-gradient-to-tr from-brand-500/20 dark:from-brand-400/20 to-transparent" />
           </div>
         </div>
