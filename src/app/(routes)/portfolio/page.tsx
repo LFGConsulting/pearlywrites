@@ -2,6 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { Container } from '../../components/ui'
 import { Carousel } from '../../components/ui/Carousel'
+import { Button } from '../../components/ui/Button'
 
 const caseStudies = [
   {
@@ -103,15 +104,21 @@ export default function PortfolioPage() {
               Let's discuss how our proven SEO and content strategies can drive meaningful results for your organization.
             </p>
             <div className="mt-10 flex items-center justify-center gap-x-6">
-              <Link
+              <Button
                 href="/contact"
-                className="rounded-md bg-white px-3.5 py-2.5 text-sm font-semibold text-brand-900 shadow-sm hover:bg-gray-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+                variant="default"
+                size="lg"
               >
                 Contact us
-              </Link>
-              <Link href="/services" className="text-sm font-semibold leading-6 text-white hover:text-brand-200">
+              </Button>
+              <Button
+                href="/services"
+                variant="outline"
+                size="lg"
+                className="text-white hover:text-brand-200"
+              >
                 Learn more <span aria-hidden="true">→</span>
-              </Link>
+              </Button>
             </div>
           </div>
         </div>

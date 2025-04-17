@@ -1,5 +1,6 @@
 import { EnvelopeIcon, PhoneIcon } from '@heroicons/react/24/outline'
 import { Container } from '../../components/ui'
+import { Button } from '../../components/ui/Button'
 
 export default function ContactPage() {
   return (
@@ -137,12 +138,9 @@ export default function ContactPage() {
                 </div>
               </div>
               <div className="mt-8 flex justify-end">
-                <button
-                  type="submit"
-                  className="rounded-md bg-brand-500 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-brand-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-500 dark:bg-brand-400 dark:hover:bg-brand-300 dark:focus-visible:outline-brand-400"
-                >
+                <Button onClick={() => {}} size="lg">
                   Send message
-                </button>
+                </Button>
               </div>
             </div>
           </form>

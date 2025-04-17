@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { CheckIcon } from '@heroicons/react/20/solid'
 import { Container } from '../../components/ui'
+import { Button } from '../../components/ui/Button'
 
 const tiers = [
   {
@@ -99,12 +100,16 @@ export default function ServicesPage() {
                   </li>
                 ))}
               </ul>
-              <Link
-                href={tier.href}
-                className="mt-auto pt-8 block rounded-md px-3 py-2 text-center text-sm font-semibold leading-6 bg-brand-500 text-white hover:bg-brand-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-500 dark:bg-brand-400 dark:hover:bg-brand-500"
-              >
-                Get started
-              </Link>
+              <div className="mt-auto pt-8">
+                <Button 
+                  href={tier.href} 
+                  size="lg" 
+                  variant={tier.featured ? 'outline' : 'default'} 
+                  className={`w-full ${tier.featured ? 'text-white hover:text-brand-200' : ''}`}
+                >
+                  Get started
+                </Button>
+              </div>
             </div>
           ))}
         </div>
@@ -118,15 +123,12 @@ export default function ServicesPage() {
             your content goals.
           </p>
           <div className="mt-10 flex items-center justify-center gap-x-6">
-            <Link
-              href="/contact"
-              className="rounded-md bg-brand-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-brand-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-500 dark:bg-brand-400 dark:hover:bg-brand-500"
-            >
+            <Button href="/contact" size="lg">
               Contact us
-            </Link>
-            <Link href="/portfolio" className="text-sm font-semibold leading-6 text-gray-900 dark:text-white hover:text-brand-500 dark:hover:text-brand-400">
-              View our work <span aria-hidden="true">→</span>
-            </Link>
+            </Button>
+            <Button href="/portfolio" variant="outline" size="lg">
+              View our work
+            </Button>
           </div>
         </div>
       </Container>
