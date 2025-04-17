@@ -1,6 +1,5 @@
 'use client';
 
-import Image from 'next/image';
 import { useEffect, useRef } from 'react';
 import ResponsiveImage from './ResponsiveImage';
 
@@ -31,23 +30,18 @@ export default function GhostContent({ html, className = '' }: GhostContentProps
 
       // Create a wrapper div for the image
       const wrapper = document.createElement('div');
-      wrapper.className = 'my-8 relative';
+      wrapper.className = 'my-8';
 
-      // Create a new div for ResponsiveImage
+      // Create the ResponsiveImage container
       const imageContainer = document.createElement('div');
       imageContainer.className = 'relative aspect-[16/9]';
-
-      // Create the image element with next/image attributes
-      const nextImage = document.createElement('img');
-      nextImage.setAttribute('src', absoluteSrc);
-      nextImage.setAttribute('alt', alt);
-      nextImage.setAttribute('loading', 'lazy');
-      nextImage.className = 'object-cover rounded-lg';
-      nextImage.style.position = 'absolute';
-      nextImage.style.inset = '0';
-      nextImage.style.width = '100%';
-      nextImage.style.height = '100%';
-
+      
+      // Create a placeholder for the ResponsiveImage
+      const imageDiv = document.createElement('div');
+      imageDiv.setAttribute('data-image-src', absoluteSrc);
+      imageDiv.setAttribute('data-image-alt', alt);
+      imageDiv.className = 'ghost-image-placeholder';
+      
       // Add caption if exists
       const caption = img.getAttribute('title') || img.getAttribute('data-caption');
       if (caption) {
@@ -58,9 +52,28 @@ export default function GhostContent({ html, className = '' }: GhostContentProps
       }
 
       // Assemble the structure
-      imageContainer.appendChild(nextImage);
+      imageContainer.appendChild(imageDiv);
       wrapper.appendChild(imageContainer);
       img.parentNode?.replaceChild(wrapper, img);
+    });
+
+    // Replace placeholders with ResponsiveImage components
+    const placeholders = contentRef.current.getElementsByClassName('ghost-image-placeholder');
+    Array.from(placeholders).forEach((placeholder) => {
+      const div = document.createElement('div');
+      div.style.position = 'relative';
+      div.style.width = '100%';
+      div.style.height = '100%';
+      
+      const img = document.createElement('img');
+      img.src = placeholder.getAttribute('data-image-src') || '';
+      img.alt = placeholder.getAttribute('data-image-alt') || '';
+      img.className = 'object-cover rounded-lg';
+      img.style.width = '100%';
+      img.style.height = '100%';
+      
+      div.appendChild(img);
+      placeholder.parentNode?.replaceChild(div, placeholder);
     });
   }, [html]);
 

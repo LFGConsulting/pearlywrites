@@ -50,33 +50,22 @@ export default function ResponsiveImage({
   const config = getImageConfig();
   const [imgSrc, setImgSrc] = useState(src);
   const [isLoading, setIsLoading] = useState(true);
+  const [isError, setIsError] = useState(false);
 
   return (
     <div className={config.wrapperClass}>
       <Image
-        src={imgSrc}
+        src={isError ? config.fallback : imgSrc}
         alt={alt}
         fill
         className={`transition-opacity duration-300 ${isLoading ? 'opacity-0' : 'opacity-100'} ${config.imageClass}`}
         sizes={config.sizes}
-        onError={(e) => {
-          console.error(`[ResponsiveImage] ${variant} image failed to load:`, {
-            src,
-            imgSrc,
-            error: e,
-            element: e.currentTarget
-          });
-          setImgSrc(config.fallback);
-        }}
-        onLoadingComplete={(result) => {
-          console.log(`[ResponsiveImage] ${variant} image loaded successfully:`, {
-            src,
-            naturalWidth: result.naturalWidth,
-            naturalHeight: result.naturalHeight
-          });
+        priority={priority}
+        onLoadingComplete={() => setIsLoading(false)}
+        onError={() => {
+          setIsError(true);
           setIsLoading(false);
         }}
-        priority={priority}
       />
       {isLoading && (
         <div className="absolute inset-0 bg-gray-100 dark:bg-gray-800 animate-pulse" />
