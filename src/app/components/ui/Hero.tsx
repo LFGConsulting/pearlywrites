@@ -42,18 +42,17 @@ export function Hero({
             </div>
           </div>
           
-          <div className="relative rounded-2xl overflow-hidden shadow-2xl ring-1 ring-gray-900/10 dark:ring-white/10">
-            <div className="relative aspect-[2/1] md:aspect-[21/9] z-0">
-              <Image
-                src="/pearlywriteshero.jpeg"
-                alt="Creative workspace with colorful umbrellas and hanging lights"
-                priority
-                fill
-                className="object-cover"
-                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 80vw"
-              />
-              <div className="absolute inset-0 bg-gradient-to-tr from-brand-500/20 dark:from-brand-400/20 to-transparent pointer-events-none z-10" />
-            </div>
+          {/* Simplified image container */}
+          <div className="relative w-full h-[350px] rounded-2xl overflow-hidden">
+            <Image
+              src="/pearlywriteshero.jpeg"
+              alt="Creative workspace with colorful umbrellas and hanging lights"
+              fill
+              priority
+              className="object-cover"
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 80vw"
+            />
+            <div className="absolute inset-0 bg-gradient-to-tr from-brand-500/20 dark:from-brand-400/20 to-transparent" />
           </div>
         </div>
       </Container>
