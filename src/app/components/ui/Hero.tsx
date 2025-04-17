@@ -42,7 +42,7 @@ export function Hero({
             </div>
           </div>
           
-          <div className="relative rounded-2xl overflow-hidden shadow-2xl ring-1 ring-gray-900/10 dark:ring-white/10">
+          <div className="relative rounded-2xl shadow-2xl ring-1 ring-gray-900/10 dark:ring-white/10">
             <div className="relative aspect-[2/1] md:aspect-[21/9] z-0">
               {/* <Image
                 src="/pearlywriteshero.jpeg"
