@@ -3,8 +3,13 @@ import { Metadata } from 'next'
 import { getPostBySlug } from '@/lib/ghost/utils'
 import { formatDate } from '@/lib/utils'
 
+type Props = {
+  params: { slug: string }
+  searchParams: { [key: string]: string | string[] | undefined }
+}
+
 // Generate metadata for SEO
-export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const post = await getPostBySlug(params.slug)
   
   if (!post) {
@@ -28,7 +33,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
 
 export const revalidate = 3600 // Revalidate every hour
 
-export default async function BlogPost({ params }: { params: { slug: string } }) {
+export default async function BlogPost({ params, searchParams }: Props) {
   const post = await getPostBySlug(params.slug)
 
   if (!post) {
