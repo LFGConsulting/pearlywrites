@@ -8,12 +8,28 @@ if (!ghostUrl || !ghostKey) {
   throw new Error('Ghost URL and Content API Key must be provided');
 }
 
+// Debug logging for Ghost configuration
+console.log('Ghost URL:', process.env.NEXT_PUBLIC_GHOST_URL);
+
 // Initialize Ghost Content API client
 export const ghostClient = new GhostContentAPI({
   url: ghostUrl,
   key: ghostKey,
   version: 'v5.0'
 });
+
+// Add debug wrapper for post fetching
+const originalGetPost = ghostClient.posts.read.bind(ghostClient.posts);
+ghostClient.posts.read = async function(...args: Parameters<typeof originalGetPost>) {
+  const post = await originalGetPost(...args);
+  console.log('Raw Ghost Post Data:', {
+    title: post.title,
+    feature_image: post.feature_image,
+    feature_image_alt: post.feature_image_alt,
+    url: post.url
+  });
+  return post;
+}
 
 // Type definitions for Ghost content
 export interface GhostTag {
@@ -85,4 +101,6 @@ export interface GhostAuthor {
   twitter: string | null;
   meta_title: string | null;
   meta_description: string | null;
-} 
+}
+
+export default ghostClient; 

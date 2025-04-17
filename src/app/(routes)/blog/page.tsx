@@ -67,17 +67,25 @@ export default async function BlogPage() {
           <div className="grid grid-cols-1 gap-x-8 gap-y-12 lg:grid-cols-3">
             {posts.map((post: GhostPost, index: number) => (
               <article key={post.id} className="flex flex-col items-start">
-                <div className="relative w-full">
-                  <Image
-                    src={post.feature_image || '/images/placeholder-blog.jpg'}
-                    alt={post.title}
-                    className="aspect-[16/9] w-full rounded-2xl bg-gray-100 object-cover sm:aspect-[2/1] lg:aspect-[3/2]"
-                    width={800}
-                    height={400}
-                    priority={index === 0}
-                  />
-                  <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-gray-900/10 dark:ring-white/10" />
-                </div>
+                {post.feature_image ? (
+                  <div className="relative w-full aspect-[16/9] mb-4">
+                    <Image
+                      src={post.feature_image}
+                      alt={post.feature_image_alt || post.title}
+                      fill
+                      className="object-cover rounded-lg"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      onError={(e) => {
+                        console.error('Blog listing - Image failed to load:', {
+                          src: post.feature_image,
+                          error: e
+                        });
+                      }}
+                    />
+                  </div>
+                ) : (
+                  <div className="relative w-full aspect-[16/9] mb-4 bg-gray-100 rounded-lg" />
+                )}
                 <div className="max-w-xl">
                   <div className="mt-8 flex items-center gap-x-4 text-xs">
                     <time dateTime={post.published_at} className="text-gray-500 dark:text-gray-400">

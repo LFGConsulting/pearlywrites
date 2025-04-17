@@ -18,7 +18,7 @@ Welcome to your new modern website! This document walks you through how to manag
 2. Hit the **"New post"** button.
 3. Add your title, content, images, tags, and anything else you like.
 4. Click **"Publish"** (or **"Schedule"** if you want it to go live later).
-
+5. Ghost site password: ivy-zo
 > ⚡ Your live site automatically updates whenever you publish. No techy steps needed!
 
 ---

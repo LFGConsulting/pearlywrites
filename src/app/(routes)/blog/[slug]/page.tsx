@@ -2,6 +2,7 @@ import Image from 'next/image'
 import { Metadata } from 'next'
 import { getPostBySlug } from '@/lib/ghost/utils'
 import { formatDate } from '@/lib/utils'
+import GhostContent from '@/components/GhostContent'
 
 type PageProps = {
   params: Promise<{ slug: string }>
@@ -54,6 +55,12 @@ export default async function BlogPost({ params }: PageProps) {
     )
   }
 
+  // Debug logging for image URLs
+  console.log('Feature Image URL:', post.feature_image);
+  if (post.primary_author) {
+    console.log('Author Profile Image URL:', post.primary_author.profile_image);
+  }
+
   return (
     <div className="bg-white dark:bg-gray-900">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -83,13 +90,17 @@ export default async function BlogPost({ params }: PageProps) {
 
             {post.primary_author && (
               <div className="mt-8 flex items-center gap-x-4">
-                <Image
-                  src={post.primary_author.profile_image || '/images/placeholder-author.jpg'}
-                  alt={post.primary_author.name}
-                  className="h-10 w-10 rounded-full bg-gray-100"
-                  width={40}
-                  height={40}
-                />
+                {post.primary_author.profile_image && (
+                  <div className="relative h-10 w-10">
+                    <Image
+                      src={post.primary_author.profile_image}
+                      alt={post.primary_author.name}
+                      className="rounded-full bg-gray-100"
+                      fill
+                      sizes="40px"
+                    />
+                  </div>
+                )}
                 <div className="text-sm leading-6">
                   <p className="font-semibold text-gray-900 dark:text-white">
                     {post.primary_author.name}
@@ -104,22 +115,30 @@ export default async function BlogPost({ params }: PageProps) {
 
           {/* Feature Image */}
           {post.feature_image && (
-            <div className="relative aspect-[16/9] mb-16">
+            <div className="relative w-full h-[400px] mb-8">
               <Image
                 src={post.feature_image}
                 alt={post.feature_image_alt || post.title}
-                className="rounded-2xl object-cover"
                 fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                onError={(e) => {
+                  console.error('Image failed to load:', {
+                    src: post.feature_image,
+                    error: e
+                  });
+                  // Optionally set a fallback image
+                  // e.currentTarget.src = '/placeholder.jpg';
+                }}
                 priority
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
               />
             </div>
           )}
 
           {/* Content */}
-          <div 
-            className="prose prose-lg dark:prose-invert max-w-none"
-            dangerouslySetInnerHTML={{ __html: post.html || '' }}
+          <GhostContent 
+            html={post.html || ''} 
+            className="mt-8"
           />
         </article>
       </div>
