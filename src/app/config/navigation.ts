@@ -1,4 +1,4 @@
-import { FaTwitter, FaLinkedin, FaInstagram, FaTiktok, FaYoutube } from 'react-icons/fa';
+import { FaLinkedin, FaInstagram, FaTiktok, FaYoutube } from 'react-icons/fa';
 
 export interface SocialLink {
   name: string;
@@ -20,11 +20,6 @@ export const mainNavigation: NavigationLink[] = [
 ];
 
 export const socialLinks: SocialLink[] = [
-  {
-    name: 'Twitter',
-    href: 'https://twitter.com/pearlywrites',
-    icon: FaTwitter
-  },
   {
     name: 'LinkedIn',
     href: 'https://www.linkedin.com/in/pearlywrites/',

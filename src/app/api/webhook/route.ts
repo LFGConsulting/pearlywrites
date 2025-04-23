@@ -13,6 +13,9 @@ export async function POST(request: Request) {
     const headersList = await headers();
     const signature = headersList.get('x-ghost-signature');
     
+    // Log the received signature header
+    console.log("Received x-ghost-signature header:", signature);
+
     if (!webhookSecret) {
       return new Response('Webhook secret not configured', { status: 500 })
     }
@@ -34,7 +37,12 @@ export async function POST(request: Request) {
       .update(body)
       .digest('hex')
     
+    // Log the computed signature for comparison
+    console.log("Computed signature starts with:", computedSignature.substring(0, 10));
+
     if (signature !== computedSignature) {
+      // Log the mismatch
+      console.error("Signature mismatch. Received:", signature, "Computed:", computedSignature);
       return new Response('Invalid signature', { status: 401 })
     }
 
