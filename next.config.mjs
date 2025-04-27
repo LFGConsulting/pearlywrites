@@ -7,8 +7,8 @@ const loadRemotePatterns = async () => {
   try {
     if (fs.existsSync(patternsPath)) {
       // Use dynamic import() for ES Modules
-      // Add a cache-busting query string, as dynamic import() can be cached
-      const patternsModule = await import(`${patternsPath}?v=${Date.now()}`);
+      // Remove the cache-busting query string
+      const patternsModule = await import(patternsPath);
       // Assuming the module exports the array directly (module.exports = [...])
       // Access the default export if needed: patternsModule.default
       return patternsModule.default || patternsModule; 

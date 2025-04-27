@@ -52,7 +52,9 @@ import path from 'path';
     console.log(`Found unique image hostnames: ${[...hosts].join(', ')}`);
 
     // Shape them for next/image → remotePatterns
-    const patterns = [...hosts].map(h => ({
+    // Sort hostnames for stable output file
+    const sortedHosts = [...hosts].sort(); 
+    const patterns = sortedHosts.map(h => ({
       protocol: 'https',
       hostname: h,
       pathname: '**'
