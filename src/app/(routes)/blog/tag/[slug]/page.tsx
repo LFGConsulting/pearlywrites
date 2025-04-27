@@ -7,12 +7,12 @@ import ResponsiveImage from '@/components/ResponsiveImage'
 
 // Define props type including params
 type PageProps = {
-  params: { slug: string }
+  params: Promise<{ slug: string }>
 }
 
 // Generate dynamic metadata based on the tag
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-  const { slug } = params
+  const { slug } = await params
   const tags = await getAllTags()
   const currentTag = tags.find((tag: GhostTag) => tag.slug === slug)
 
@@ -34,7 +34,7 @@ export const revalidate = 3600 // Revalidate every hour
 
 // Main page component
 export default async function TagPage({ params }: PageProps) {
-  const { slug } = params
+  const { slug } = await params
   const [posts, tags] = await Promise.all([getAllPosts(), getAllTags()])
 
   // Find the current tag object
