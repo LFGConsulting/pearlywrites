@@ -38,15 +38,25 @@ const nextConfig = async () => {
       //   'static.ghost.org'
       // ],
       remotePatterns: [
-        // Keep any non-Ghost patterns you need
+        // --- Add essential static patterns below ---
+        {
+          protocol: 'https',
+          hostname: 'seo-and-content-strategy.ghost.io',
+          pathname: '/**', // Allow all paths for your own ghost instance
+        },
+        {
+          protocol: 'https',
+          hostname: 'www.gravatar.com',
+          pathname: '/avatar/**', // Standard Gravatar path
+        },
         {
           protocol: 'https',
           hostname: 'images.unsplash.com',
           pathname: '/**',
         },
-        // Add other static patterns here if needed
+        // --- Add other static patterns here if needed ---
         // ...
-        // Dynamically load patterns generated from Ghost
+        // --- Dynamically load patterns generated from Ghost ---
         ...generatedPatterns,
       ],
     },
