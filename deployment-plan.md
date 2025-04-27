@@ -50,13 +50,7 @@ This document outlines the infrastructure and deployment plan for the new Pearly
 ---
 
 ## Vercel Setup
-- Client should create a **Vercel account** with her email.
-- Site will be deployed under her Vercel account.
-  - Connect GitHub repo (grant org access).
-  - Set project environment variables if needed (e.g., Ghost API keys).
-- Set up **custom domain**:
-  - Add `pearlywrites.com` in Vercel project.
-  - Update DNS settings in Squarespace to point to Vercel-provided CNAME/A records.
+- Will be using LFG Organization github repo due to Vercel policy re commercial projects
 
 ### Deployment Notes
 - Each push to `main` triggers auto-deploy.
