@@ -111,10 +111,16 @@ export default async function BlogPage() {
                       />
                       <div className="text-sm leading-6">
                         <p className="font-semibold text-gray-900 dark:text-white">
-                          <Link href={`/blog/author/${post.primary_author.slug}`}>
-                            <span className="absolute inset-0" />
-                            {post.primary_author.name}
-                          </Link>
+                          {post.primary_author.slug === 'lisa-weinberger' ? (
+                            <Link href="/about">
+                              <span className="absolute inset-0" />
+                              {post.primary_author.name}
+                            </Link>
+                          ) : (
+                            <span className="text-gray-900 dark:text-white">
+                              {post.primary_author.name}
+                            </span>
+                          )}
                         </p>
                         <p className="text-gray-600 dark:text-gray-400">{post.primary_author.bio?.split('.')[0]}</p>
                       </div>
