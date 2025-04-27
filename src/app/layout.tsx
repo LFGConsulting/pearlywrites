@@ -38,7 +38,7 @@ export default function RootLayout({
         <ThemeProvider>
           <div className="min-h-screen flex flex-col bg-white dark:bg-gray-900">
             <Navigation />
-            <main className="flex-grow">
+            <main className="flex-grow pt-[var(--header-height)]">
               {children}
             </main>
             <Footer />
