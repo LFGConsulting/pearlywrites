@@ -54,7 +54,7 @@ export default function AboutPage() {
         <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-3">
           <div className="lg:col-span-2 lg:border-r lg:border-gray-200 dark:lg:border-gray-800 lg:pr-8">
             <div className="flex flex-col-reverse">
-              <div className="mt-6">
+              <div id="lisa-weinberger" className="mt-6">
                 <h3 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Lisa Weinberger</h3>
                 <p className="text-base leading-7 text-brand-500 dark:text-brand-400">Founder & CEO</p>
               </div>
