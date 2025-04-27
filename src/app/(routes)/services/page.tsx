@@ -68,32 +68,32 @@ export default function ServicesPage() {
           {tiers.map((tier) => (
             <div
               key={tier.id}
-              className={`rounded-3xl p-8 ring-1 flex flex-col ${
-                tier.featured 
-                  ? 'bg-brand-900 ring-brand-900 dark:bg-brand-800 dark:ring-brand-700' 
-                  : 'bg-white dark:bg-gray-800 ring-gray-200 dark:ring-gray-700'
-              } xl:p-10`}
+              className="group relative flex flex-col rounded-3xl p-8 ring-1 xl:p-10
+                         transition-colors duration-300 ease-in-out 
+                         bg-white ring-gray-200 dark:bg-gray-800 dark:ring-gray-700 
+                         hover:bg-brand-900 hover:ring-brand-900 
+                         dark:hover:bg-brand-800 dark:hover:ring-brand-700"
             >
               <div className="flex items-center justify-between gap-x-4">
                 <h3
-                  className={`text-lg font-semibold leading-8 ${
-                    tier.featured ? 'text-white' : 'text-gray-900 dark:text-gray-100'
-                  }`}
+                  className="text-lg font-semibold leading-8 text-gray-900 dark:text-gray-100 group-hover:text-white"
                 >
                   {tier.name}
                 </h3>
               </div>
-              <p className={`mt-4 text-sm leading-6 ${tier.featured ? 'text-gray-100' : 'text-gray-600 dark:text-gray-300'}`}>
+              <p 
+                className="mt-4 text-sm leading-6 text-gray-600 dark:text-gray-300 group-hover:text-gray-100"
+              >
                 {tier.description}
               </p>
               <ul
                 role="list"
-                className={`mt-8 space-y-3 text-sm leading-6 ${tier.featured ? 'text-gray-100' : 'text-gray-600 dark:text-gray-300'}`}
+                className="mt-8 space-y-3 text-sm leading-6 text-gray-600 dark:text-gray-300 group-hover:text-gray-100"
               >
                 {tier.features.map((feature) => (
                   <li key={feature} className="flex gap-x-3">
                     <CheckIcon
-                      className={`h-6 w-5 flex-none ${tier.featured ? 'text-brand-200' : 'text-brand-500 dark:text-brand-400'}`}
+                      className="h-6 w-5 flex-none text-brand-500 dark:text-brand-400 group-hover:text-brand-200"
                       aria-hidden="true"
                     />
                     {feature}
@@ -104,8 +104,8 @@ export default function ServicesPage() {
                 <Button 
                   href={tier.href} 
                   size="lg" 
-                  variant={tier.featured ? 'outline' : 'default'} 
-                  className={`w-full ${tier.featured ? 'text-white hover:text-brand-200' : ''}`}
+                  variant="default" 
+                  className="w-full"
                 >
                   Get started
                 </Button>
