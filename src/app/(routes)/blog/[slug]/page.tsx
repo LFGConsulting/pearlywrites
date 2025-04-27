@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link'
 import { Metadata } from 'next'
 import { getPostBySlug } from '@/lib/ghost/utils'
 import { formatDate } from '@/lib/utils'
@@ -95,7 +96,16 @@ export default async function BlogPost({ params }: PageProps) {
                 )}
                 <div className="text-sm leading-6">
                   <p className="font-semibold text-gray-900 dark:text-white">
-                    {post.primary_author.name}
+                    {post.primary_author.slug === 'lisa-weinberger' ? (
+                      <Link href="/about">
+                        <span className="absolute inset-0" />
+                        {post.primary_author.name}
+                      </Link>
+                    ) : (
+                      <span className="text-gray-900 dark:text-white">
+                        {post.primary_author.name}
+                      </span>
+                    )}
                   </p>
                   <p className="text-gray-600 dark:text-gray-400">
                     {post.primary_author.bio?.split('.')[0]}
