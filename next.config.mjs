@@ -27,6 +27,11 @@ const nextConfig = {
         hostname: 'static.ghost.org',
         pathname: '/v4.0.0/images/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'images.unsplash.com',
+        pathname: '/**',
+      },
     ],
   },
 }

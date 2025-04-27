@@ -21,11 +21,11 @@ This document outlines the infrastructure and deployment plan for the new Pearly
 1. **Client (PearlyWrites) signs up for a Ghost(Pro) account**
    - Go to https://ghost.org
    - Choose "Start a free trial"
-   - Pick subdomain: `pearlywrites.ghost.io` (won’t be public once custom domain is set)
+   - Pick subdomain: `pearlywrites.ghost.io` (won't be public once custom domain is set)
 
 2. **Client adds me (developer) as staff admin**
    - My email: [INSERT_YOUR_EMAIL]
-   - I’ll configure the integration, content model, and API keys
+   - I'll configure the integration, content model, and API keys
 
 3. **Client will later handle billing**
    - Ghost(Pro) will email before trial expires
@@ -84,6 +84,11 @@ This document outlines the infrastructure and deployment plan for the new Pearly
 - [ ] Add domain to Vercel & update Squarespace DNS
 - [ ] Invite client to Ghost
 - [ ] Set up webhook from Ghost to Vercel
+- [ ] Set up automated image domain allowlist update (for next/image):
+  - [ ] Create GitHub Actions workflow file (`.github/workflows/update-image-domains.yml`).
+  - [ ] Create Node.js script (`scripts/update-image-domains.js`) to fetch Ghost content, parse image hostnames, read/write `next.config.mjs`, and commit changes.
+  - [ ] Add Ghost Content API Key and GitHub Token as repository secrets.
+  - [ ] Configure workflow schedule (e.g., daily) and trigger (push to main).
 
 ---
 
