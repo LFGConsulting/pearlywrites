@@ -10,6 +10,7 @@ This is the official website for PearlyWrites, a content strategy and developmen
 - Headless UI
 - Framer Motion
 - Hero Icons
+- Ghost CMS (headless config)
 
 ## Getting Started
 
