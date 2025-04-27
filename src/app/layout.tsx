@@ -18,7 +18,7 @@ export const metadata: Metadata = {
       { url: '/apple-touch-icon.png', sizes: '180x180' }
     ]
   },
-  manifest: '/site.webmanifest',
+  // manifest: '/site.webmanifest', // not needed for now
   applicationName: 'PearlyWrites',
   appleWebApp: {
     capable: true,
