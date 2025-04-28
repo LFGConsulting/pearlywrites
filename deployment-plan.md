@@ -46,6 +46,7 @@ This document outlines the infrastructure and deployment plan for the new Pearly
   - Initially created under personal GitHub, now lives in org for easier handoff.
 - Use `main` as default branch.
 - Keep repo **private** until public launch.
+- Offer client option to start their own github and transfer
 
 ---
 
@@ -69,20 +70,15 @@ This document outlines the infrastructure and deployment plan for the new Pearly
 ---
 
 ## To-Dos
-- [ ] Create GitHub org and transfer repo
-- [ ] Build MVP site in Next.js
-- [ ] Style with Tailwind (if applicable)
-- [ ] Set up Ghost integration (API calls)
-- [ ] Deploy to Vercel (initially from personal)
-- [ ] Transfer to client Vercel account
+- [X ] Create GitHub org and transfer repo
+- [x ] Build MVP site in Next.js
+- [x ] Style with Tailwind (if applicable)
+- [x ] Set up Ghost integration (API calls)
+- [x ] Deploy to Vercel (initially from personal)
 - [ ] Add domain to Vercel & update Squarespace DNS
-- [ ] Invite client to Ghost
-- [ ] Set up webhook from Ghost to Vercel
-- [ ] Set up automated image domain allowlist update (for next/image):
-  - [ ] Create GitHub Actions workflow file (`.github/workflows/update-image-domains.yml`).
-  - [ ] Create Node.js script (`scripts/update-image-domains.js`) to fetch Ghost content, parse image hostnames, read/write `next.config.mjs`, and commit changes.
-  - [ ] Add Ghost Content API Key and GitHub Token as repository secrets.
-  - [ ] Configure workflow schedule (e.g., daily) and trigger (push to main).
+- [x ] Invite client to Ghost
+- [x ] Set up webhook from Ghost to Vercel
+- [x ] Set up automated image domain allowlist update (for next/image)
 
 ---
 

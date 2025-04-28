@@ -21,7 +21,9 @@ const initialFormData: FormData = {
   message: ''
 }
 
-// Replace this with your Formspree form ID
+// --- ACTION REQUIRED: Replace 'YOUR_FORM_ID' below with your actual Formspree Form ID ---
+// You can find this ID in your Formspree dashboard under your form's settings.
+// Example: If your endpoint is https://formspree.io/f/xxxxxxxx, the ID is 'xxxxxxxx'.
 const FORMSPREE_FORM_ID = 'YOUR_FORM_ID'
 
 export default function ContactPage() {
@@ -104,7 +106,7 @@ export default function ContactPage() {
                 We&apos;re here to help with your content strategy needs.
               </p>
               <dl className="mt-10 space-y-4 text-base leading-7 text-gray-600 dark:text-gray-300">
-                <div className="flex gap-x-4">
+                {/*<div className="flex gap-x-4">
                   <dt className="flex-none">
                     <span className="sr-only">Email</span>
                     <EnvelopeIcon className="h-7 w-6 text-brand-500 dark:text-brand-400" aria-hidden="true" />
@@ -125,7 +127,7 @@ export default function ContactPage() {
                       +1 (555) 234-5678
                     </a>
                   </dd>
-                </div>
+                </div> */}
               </dl>
             </div>
           </div>

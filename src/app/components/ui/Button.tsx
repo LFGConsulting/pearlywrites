@@ -25,8 +25,8 @@ export function Button({
   disabled = false
 }: ButtonProps) {
   const variants = {
-    default: 'bg-brand-500 text-white hover:bg-brand-600 dark:bg-brand-400 dark:hover:bg-brand-300',
-    outline: 'border-2 border-brand-500 text-brand-500 hover:bg-brand-50 dark:border-brand-400 dark:text-brand-400 dark:hover:bg-brand-900/50'
+    default: 'bg-brand-500 text-white hover:bg-brand-600 active:bg-brand-700 dark:bg-brand-400 dark:hover:bg-brand-300 dark:active:bg-brand-500',
+    outline: 'border-2 border-brand-500 text-brand-500 hover:bg-brand-50 active:bg-brand-100 dark:border-brand-400 dark:text-brand-400 dark:hover:bg-brand-900/50 dark:active:bg-brand-900/75'
   }
 
   const sizes = {
@@ -35,7 +35,7 @@ export function Button({
     lg: 'px-6 py-3 text-lg'
   }
 
-  const baseStyles = 'inline-flex items-center justify-center font-medium rounded-lg transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-brand-500 disabled:opacity-50 disabled:pointer-events-none'
+  const baseStyles = 'inline-flex items-center justify-center font-medium rounded-lg transition-colors duration-150 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-offset-2 focus-visible:ring-brand-500/70 disabled:opacity-50 disabled:pointer-events-none'
   const styles = `${baseStyles} ${variants[variant]} ${sizes[size]} ${className}`
 
   if (href) {
@@ -47,7 +47,7 @@ export function Button({
   }
 
   return (
-    <button type={type} onClick={onClick} className={styles}>
+    <button type={type} onClick={onClick} className={styles} disabled={disabled}>
       {children}
     </button>
   )
