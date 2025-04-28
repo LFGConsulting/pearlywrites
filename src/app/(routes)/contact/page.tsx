@@ -21,10 +21,7 @@ const initialFormData: FormData = {
   message: ''
 }
 
-// --- ACTION REQUIRED: Replace 'YOUR_FORM_ID' below with your actual Formspree Form ID ---
-// You can find this ID in your Formspree dashboard under your form's settings.
-// Example: If your endpoint is https://formspree.io/f/xxxxxxxx, the ID is 'xxxxxxxx'.
-const FORMSPREE_FORM_ID = 'YOUR_FORM_ID'
+const FORMSPREE_FORM_ID = 'xjkwknyk'
 
 export default function ContactPage() {
   const [formData, setFormData] = useState<FormData>(initialFormData)
