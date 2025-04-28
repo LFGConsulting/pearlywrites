@@ -1,27 +1,31 @@
 'use client'
 
-import { useState, useCallback, useEffect } from 'react'
+import { useState, useCallback, useEffect, useRef } from 'react'
 import Image from 'next/image'
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/outline'
 import { motion, AnimatePresence } from 'framer-motion'
 
-interface CarouselProps {
-  items: Array<{
-    title: string
-    client: string
-    description: string
-    metrics: Array<{
-      name: string
-      value: string
-    }>
-    image: string
+interface CarouselItem {
+  title: string
+  client: string
+  description: string
+  metrics: Array<{
+    name: string
+    value: string
   }>
+  image: string
+  clientUrl?: string
+}
+
+interface CarouselProps {
+  items: Array<CarouselItem>
 }
 
 export const Carousel = ({ items }: CarouselProps) => {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [direction, setDirection] = useState(0)
   const [isPaused, setIsPaused] = useState(false)
+  const resumeRef = useRef<NodeJS.Timeout | null>(null)
 
   const slideVariants = {
     enter: (direction: number) => ({
@@ -56,26 +60,49 @@ export const Carousel = ({ items }: CarouselProps) => {
   }, [items.length])
 
   const handleDotClick = useCallback((index: number) => {
+    if (resumeRef.current) {
+      clearTimeout(resumeRef.current)
+      resumeRef.current = null
+    }
+    setIsPaused(true)
     const newDirection = index > currentIndex ? 1 : -1
     setDirection(newDirection)
     setCurrentIndex(index)
+    resumeRef.current = setTimeout(() => {
+      setIsPaused(false)
+      resumeRef.current = null
+    }, 5000)
   }, [currentIndex])
 
-  const handleArrowClick = useCallback((direction: number) => {
-    setIsPaused(true)
-    paginate(direction)
-    // Resume autoplay after 5 seconds
-    setTimeout(() => setIsPaused(false), 5000)
-  }, [paginate])
+  const handleArrowClick = useCallback(
+    (direction: number) => {
+      setIsPaused(true)
+      paginate(direction)
+  
+      if (resumeRef.current) clearTimeout(resumeRef.current)
+      resumeRef.current = setTimeout(() => {
+        setIsPaused(false)
+        resumeRef.current = null
+      }, 5000)
+    },
+    [paginate]
+  )
 
   useEffect(() => {
-    if (isPaused) return
+    return () => {
+      if (resumeRef.current) clearTimeout(resumeRef.current)
+    }
+  }, [])
 
-    const interval = setInterval(() => {
-      paginate(1)
-    }, 5000)
-
-    return () => clearInterval(interval)
+  useEffect(() => {
+    if (isPaused) {
+      return () => {}
+    } else {
+      const interval = setInterval(() => {
+        paginate(1)
+      }, 4000)
+      return () => clearInterval(interval)
+    }
   }, [paginate, isPaused])
 
   const currentItem = items[currentIndex]
@@ -84,7 +111,11 @@ export const Carousel = ({ items }: CarouselProps) => {
     <div 
       className="relative w-full max-w-4xl mx-auto overflow-hidden rounded-2xl bg-white dark:bg-gray-800 shadow-xl"
       onMouseEnter={() => setIsPaused(true)}
-      onMouseLeave={() => setIsPaused(false)}
+      onMouseLeave={() => {
+        if (!resumeRef.current) {
+          setIsPaused(false)
+        }
+      }}
     >
       <div className="relative min-h-[450px] md:min-h-0 md:aspect-[16/9]">
         <AnimatePresence initial={false} custom={direction} mode="wait">
@@ -101,7 +132,7 @@ export const Carousel = ({ items }: CarouselProps) => {
             }}
             drag="x"
             dragConstraints={{ left: 0, right: 0 }}
-            dragElastic={1}
+            dragElastic={0.2}
             onDragEnd={(e, { offset, velocity }) => {
               const swipe = swipePower(offset.x, velocity.x)
               if (swipe < -swipeConfidenceThreshold) {
@@ -126,7 +157,21 @@ export const Carousel = ({ items }: CarouselProps) => {
             <div className="relative flex flex-col h-full p-6 md:p-8 pb-16 z-20">
               <div className="flex flex-col h-full text-white">
                 <h3 className="text-xl md:text-2xl font-bold">{currentItem.title}</h3>
-                <p className="text-base md:text-lg text-brand-300">{currentItem.client}</p>
+                
+                {currentItem.clientUrl ? (
+                  <a 
+                    href={currentItem.clientUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-base md:text-lg text-brand-300 hover:text-brand-200 transition-colors"
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    {currentItem.client}
+                  </a>
+                ) : (
+                  <p className="text-base md:text-lg text-brand-300">{currentItem.client}</p>
+                )}
+
                 <p className="mt-2 md:mt-4 text-sm md:text-base text-gray-100">{currentItem.description}</p>
                 
                 <div className="mt-4 md:mt-auto">
@@ -153,7 +198,7 @@ export const Carousel = ({ items }: CarouselProps) => {
           e.stopPropagation()
           handleArrowClick(-1)
         }}
-        className="absolute left-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-white/80 dark:bg-gray-800/80 shadow-lg hover:bg-white dark:hover:bg-gray-800 z-10"
+        className="absolute left-4 bottom-4 sm:bottom-auto sm:top-1/2 -translate-y-1/2 p-2 rounded-full bg-white/80 dark:bg-gray-800/80 shadow-lg hover:bg-white dark:hover:bg-gray-800 z-10"
         aria-label="Previous slide"
       >
         <ChevronLeftIcon className="w-6 h-6 text-gray-900 dark:text-white" />
@@ -164,7 +209,7 @@ export const Carousel = ({ items }: CarouselProps) => {
           e.stopPropagation()
           handleArrowClick(1)
         }}
-        className="absolute right-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-white/80 dark:bg-gray-800/80 shadow-lg hover:bg-white dark:hover:bg-gray-800 z-10"
+        className="absolute right-4 bottom-4 sm:bottom-auto sm:top-1/2 -translate-y-1/2 p-2 rounded-full bg-white/80 dark:bg-gray-800/80 shadow-lg hover:bg-white dark:hover:bg-gray-800 z-10"
         aria-label="Next slide"
       >
         <ChevronRightIcon className="w-6 h-6 text-gray-900 dark:text-white" />

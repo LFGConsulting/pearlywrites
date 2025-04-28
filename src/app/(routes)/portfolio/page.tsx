@@ -32,6 +32,7 @@ const caseStudies = [
   {
     title: 'Content & Social Strategy',
     client: 'IvyandZo.com',
+    clientUrl: 'https://ivyandzo.com/',
     description:
       'Led comprehensive social media strategy in the dog niche, building a significant following from scratch and establishing successful brand partnerships and collaborations.',
     metrics: [
@@ -44,6 +45,7 @@ const caseStudies = [
   {
     title: 'SEO, Branding, & Content Marketing',
     client: 'MarijuanaRates.com',
+    clientUrl: 'https://marijuanarates.com/',
     description:
       'Developed comprehensive SEO and content strategy for cannabis market pricing platform, achieving dominant market position through organic search and unique data offerings.',
     metrics: [
@@ -51,7 +53,7 @@ const caseStudies = [
       { name: 'Monthly Views', value: '50K' },
       { name: 'Email Leads', value: '1.5K' },
     ],
-    image: '/images/MRates-logo.jpg',
+    image: '/images/mrates-banner.png',
   },
 ]
 
