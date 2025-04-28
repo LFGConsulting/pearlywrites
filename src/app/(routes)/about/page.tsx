@@ -12,7 +12,7 @@ export default function AboutPage() {
 
         <div className="mt-16 sm:mt-20">
           <Image
-            src="/images/Pearlywrites-office-with-dogs.jpg"
+            src="/images/PearlyWrites-office-with-dogs.jpg"
             alt="PearlyWrites office"
             className="aspect-[5/2] w-full object-cover rounded-2xl lg:rounded-3xl"
             width={1920}
