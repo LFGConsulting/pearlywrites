@@ -123,7 +123,7 @@ export const Carousel = ({ items }: CarouselProps) => {
             
             <div className="absolute inset-0 bg-black/40 z-10" />
             
-            <div className="relative flex flex-col h-full p-6 md:p-8 z-20">
+            <div className="relative flex flex-col h-full p-6 md:p-8 pb-16 z-20">
               <div className="flex flex-col h-full text-white">
                 <h3 className="text-xl md:text-2xl font-bold">{currentItem.title}</h3>
                 <p className="text-base md:text-lg text-brand-300">{currentItem.client}</p>

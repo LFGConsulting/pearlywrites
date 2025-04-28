@@ -51,7 +51,7 @@ const caseStudies = [
       { name: 'Monthly Views', value: '50K' },
       { name: 'Email Leads', value: '1.5K' },
     ],
-    image: '/images/Mrates-logo.jpg',
+    image: '/images/MRates-logo.jpg',
   },
 ]
 
