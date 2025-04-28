@@ -17,7 +17,6 @@ const tiers = [
       'Competitor analysis',
       'Monthly progress reports',
     ],
-    featured: true,
   },
   {
     name: 'Content Strategy',
@@ -66,51 +65,43 @@ export default function ServicesPage() {
 
         <div className="isolate mx-auto mt-16 grid max-w-md grid-cols-1 gap-y-8 sm:mt-20 lg:mx-0 lg:max-w-none lg:grid-cols-3 lg:gap-x-8 xl:gap-x-12">
           {tiers.map((tier) => (
-            <div
-              key={tier.id}
-              className="group relative flex flex-col rounded-3xl p-8 ring-1 xl:p-10
+            <Link key={tier.id} href={tier.href} className="block group relative flex flex-col rounded-3xl p-8 ring-1 xl:p-10
                          transition-colors duration-300 ease-in-out 
                          bg-white ring-gray-200 dark:bg-gray-800 dark:ring-gray-700 
                          hover:bg-brand-900 hover:ring-brand-900 
-                         dark:hover:bg-brand-800 dark:hover:ring-brand-700"
-            >
-              <div className="flex items-center justify-between gap-x-4">
-                <h3
-                  className="text-lg font-semibold leading-8 text-gray-900 dark:text-gray-100 group-hover:text-white"
+                         dark:hover:bg-brand-800 dark:hover:ring-brand-700">
+              <div className="flex flex-col h-full">
+                <div className="flex items-center justify-between gap-x-4">
+                  <h3
+                    className="text-lg font-semibold leading-8 text-gray-900 dark:text-gray-100 group-hover:text-white"
+                  >
+                    {tier.name}
+                  </h3>
+                </div>
+                <p 
+                  className="mt-4 text-sm leading-6 text-gray-600 dark:text-gray-300 group-hover:text-gray-100 flex-grow"
                 >
-                  {tier.name}
-                </h3>
-              </div>
-              <p 
-                className="mt-4 text-sm leading-6 text-gray-600 dark:text-gray-300 group-hover:text-gray-100"
-              >
-                {tier.description}
-              </p>
-              <ul
-                role="list"
-                className="mt-8 space-y-3 text-sm leading-6 text-gray-600 dark:text-gray-300 group-hover:text-gray-100"
-              >
-                {tier.features.map((feature) => (
-                  <li key={feature} className="flex gap-x-3">
-                    <CheckIcon
-                      className="h-6 w-5 flex-none text-brand-500 dark:text-brand-400 group-hover:text-brand-200"
-                      aria-hidden="true"
-                    />
-                    {feature}
-                  </li>
-                ))}
-              </ul>
-              <div className="mt-auto pt-8">
-                <Button 
-                  href={tier.href} 
-                  size="lg" 
-                  variant="default" 
-                  className="w-full"
+                  {tier.description}
+                </p>
+                <ul
+                  role="list"
+                  className="mt-8 space-y-3 text-sm leading-6 text-gray-600 dark:text-gray-300 group-hover:text-gray-100"
                 >
-                  Get started
-                </Button>
+                  {tier.features.map((feature) => (
+                    <li key={feature} className="flex gap-x-3">
+                      <CheckIcon
+                        className="h-6 w-5 flex-none text-brand-500 dark:text-brand-400 group-hover:text-brand-200"
+                        aria-hidden="true"
+                      />
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+                <div className="mt-8 pt-8 border-t border-gray-200 dark:border-gray-700 group-hover:border-brand-700 dark:group-hover:border-brand-600 transition-colors duration-300 ease-in-out">
+                  <p className="text-sm font-semibold text-gray-600 dark:text-gray-300 group-hover:text-white">Learn More &rarr;</p>
+                </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
 
