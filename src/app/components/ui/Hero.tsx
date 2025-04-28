@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import { Container } from './Container'
 import { Button } from './Button'
 
@@ -17,12 +18,15 @@ export function Hero({
   className = '',
 }: HeroProps) {
   return (
-    <div className="relative min-h-[600px] bg-gray-900">
+    <div className="relative aspect-[16/7] sm:aspect-[16/6] bg-gray-900">
       {/* Background image - increase visibility by reducing opacity */}
-      <img 
+      <Image 
         src="/pearlywriteshero.jpeg"
         alt="Creative workspace with colorful umbrellas and hanging lights"
-        className="absolute inset-0 w-full h-full object-cover opacity-80"
+        fill                   /* = layout: fill + position: absolute */
+        priority               /* load immediately on first paint   */
+        sizes="100vw"          /* let Next generate correct breakpoints */
+        className="object-cover object-[center_65%] opacity-80"
       />
       
       {/* Gradient overlay - lighter gradient for better image visibility */}
