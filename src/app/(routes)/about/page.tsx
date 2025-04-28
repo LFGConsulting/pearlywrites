@@ -4,11 +4,25 @@ import { Container } from '../../components/ui'
 export default function AboutPage() {
   return (
     <div className="bg-white dark:bg-gray-900">
-      <Container className="py-24 sm:py-32">
+      <Container className="pb-8 sm:pb-12">
         <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-none">
           <p className="text-base font-semibold leading-7 text-brand-500 dark:text-brand-400">About Us</p>
           <h1 className="mt-2 text-4xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-6xl">Our Story</h1>
-          <div className="mt-10 grid max-w-xl grid-cols-1 gap-8 text-base leading-7 text-gray-700 dark:text-gray-300 lg:max-w-none lg:grid-cols-2">
+        </div>
+
+        <div className="mt-16 sm:mt-20">
+          <Image
+            src="/images/Pearlywrites-office-with-dogs.jpg"
+            alt="PearlyWrites office"
+            className="aspect-[5/2] w-full object-cover rounded-2xl lg:rounded-3xl"
+            width={1920}
+            height={768}
+            priority
+          />
+        </div>
+
+        <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-none">
+          <div className="mt-16 sm:mt-20 grid max-w-xl grid-cols-1 gap-8 text-base leading-7 text-gray-700 dark:text-gray-300 lg:max-w-none lg:grid-cols-2">
             <div>
               <p>
                 PearlyWrites was founded with a clear vision: to help businesses and organizations communicate their message
@@ -34,31 +48,16 @@ export default function AboutPage() {
         </div>
       </Container>
 
-      <div className="mt-32 sm:mt-40 xl:mx-auto xl:max-w-7xl xl:px-8">
-        <Image
-          src="/images/office.jpg"
-          alt="PearlyWrites office"
-          className="aspect-[5/2] w-full object-cover xl:rounded-3xl"
-          width={1920}
-          height={768}
-        />
-      </div>
-
-      <Container className="mt-32 sm:mt-40">
-        <div className="mx-auto max-w-2xl lg:mx-0">
-          <h2 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">Our Leadership</h2>
-          <p className="mt-6 text-lg leading-8 text-gray-600 dark:text-gray-300">
-            Meet the visionary behind PearlyWrites and learn about our commitment to excellence in SEO and content strategy.
-          </p>
-        </div>
-        <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-3">
+      <Container className="pt-8 pb-24 sm:pt-12 sm:pb-32">
+        <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-3">
           <div className="lg:col-span-2 lg:border-r lg:border-gray-200 dark:lg:border-gray-800 lg:pr-8">
             <div className="flex flex-col-reverse">
               <div id="lisa-weinberger" className="mt-6">
                 <h3 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Lisa Weinberger</h3>
                 <p className="text-base leading-7 text-brand-500 dark:text-brand-400">Founder & CEO</p>
               </div>
-              <div className="aspect-[3/2]">
+              {/*}
+              <div className="aspect-[3/2]"> 
                 <Image
                   src="/images/lisa.jpg"
                   alt="Lisa Weinberger"
@@ -66,7 +65,7 @@ export default function AboutPage() {
                   width={800}
                   height={533}
                 />
-              </div>
+              </div> */}
             </div>
             <div className="mt-10 max-w-xl text-base leading-7 text-gray-700 dark:text-gray-300">
               <p>

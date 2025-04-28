@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useCallback, useEffect } from 'react'
+import Image from 'next/image'
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/outline'
 import { motion, AnimatePresence } from 'framer-motion'
 
@@ -85,7 +86,7 @@ export const Carousel = ({ items }: CarouselProps) => {
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
-      <div className="relative aspect-[16/9]">
+      <div className="relative min-h-[450px] md:min-h-0 md:aspect-[16/9]">
         <AnimatePresence initial={false} custom={direction} mode="wait">
           <motion.div
             key={currentIndex}
@@ -109,23 +110,34 @@ export const Carousel = ({ items }: CarouselProps) => {
                 handleArrowClick(-1)
               }
             }}
-            className="absolute inset-0"
+            className="absolute inset-0 bg-gray-100 dark:bg-gray-700"
           >
-            <div className="h-full p-8">
-              <div className="flex flex-col h-full">
-                <h3 className="text-2xl font-bold text-gray-900 dark:text-white">{currentItem.title}</h3>
-                <p className="text-lg text-brand-500 dark:text-brand-400">{currentItem.client}</p>
-                <p className="mt-4 text-gray-600 dark:text-gray-300">{currentItem.description}</p>
+            <Image 
+              src={currentItem.image}
+              alt={currentItem.title || 'Case study image'}
+              fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              className="absolute inset-0 z-0 object-cover"
+              priority={currentIndex === 0}
+            />
+            
+            <div className="absolute inset-0 bg-black/40 z-10" />
+            
+            <div className="relative flex flex-col h-full p-6 md:p-8 z-20">
+              <div className="flex flex-col h-full text-white">
+                <h3 className="text-xl md:text-2xl font-bold">{currentItem.title}</h3>
+                <p className="text-base md:text-lg text-brand-300">{currentItem.client}</p>
+                <p className="mt-2 md:mt-4 text-sm md:text-base text-gray-100">{currentItem.description}</p>
                 
-                <div className="mt-auto">
-                  <div className="grid grid-cols-3 gap-4">
+                <div className="mt-4 md:mt-auto">
+                  <div className="grid grid-cols-3 gap-2 md:gap-4">
                     {currentItem.metrics.map((metric) => (
                       <div
                         key={metric.name}
-                        className="text-center p-4 bg-gray-50 dark:bg-gray-700 rounded-lg"
+                        className="text-center p-2 md:p-4 bg-white/20 backdrop-blur-sm rounded-lg"
                       >
-                        <p className="text-2xl font-bold text-gray-900 dark:text-white">{metric.value}</p>
-                        <p className="text-sm text-gray-600 dark:text-gray-400">{metric.name}</p>
+                        <p className="text-lg md:text-2xl font-bold text-white">{metric.value}</p>
+                        <p className="text-xs md:text-sm text-gray-200">{metric.name}</p>
                       </div>
                     ))}
                   </div>

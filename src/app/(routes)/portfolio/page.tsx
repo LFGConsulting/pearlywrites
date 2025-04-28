@@ -15,7 +15,7 @@ const caseStudies = [
       { name: 'Non-brand Clicks', value: '+18%' },
       { name: 'Content Marketing Response', value: '10%' },
     ],
-    image: '/images/case-study-1.jpg',
+    image: '/images/university-classroom.jpg',
   },
   {
     title: 'SEO Content Strategy',
@@ -27,7 +27,7 @@ const caseStudies = [
       { name: 'Organic Traffic', value: '75%' },
       { name: 'Monthly Revenue', value: '$5M+' },
     ],
-    image: '/images/case-study-2.jpg',
+    image: '/images/personal-finance-website.jpg',
   },
   {
     title: 'Content & Social Strategy',
@@ -39,7 +39,7 @@ const caseStudies = [
       { name: 'Brand Partnerships', value: 'Multiple' },
       { name: 'Product Lines', value: 'Created' },
     ],
-    image: '/images/case-study-3.jpg',
+    image: '/images/ivy-zo-1.jpg',
   },
   {
     title: 'SEO, Branding, & Content Marketing',
@@ -51,7 +51,7 @@ const caseStudies = [
       { name: 'Monthly Views', value: '50K' },
       { name: 'Email Leads', value: '1.5K' },
     ],
-    image: '/images/case-study-4.jpg',
+    image: '/images/Mrates-logo.jpg',
   },
 ]
 
