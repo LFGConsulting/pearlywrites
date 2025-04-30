@@ -1,0 +1,6 @@
+# Allow all web crawlers access
+User-agent: *
+Disallow:
+
+# Point crawlers to the sitemap
+Sitemap: https://www.pearlywrites.com/sitemap.xml 

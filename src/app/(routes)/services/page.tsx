@@ -2,6 +2,17 @@ import Link from 'next/link'
 import { CheckIcon } from '@heroicons/react/20/solid'
 import { Container } from '../../components/ui'
 import { Button } from '../../components/ui/Button'
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: "SEO Marketing, Content Strategy & Educational Publishing Services",
+  description: "Choose the right service for your needs: SEO strategy, content creation, or educational publishing. PearlyWrites offers expert solutions to enhance your digital presence and impact.",
+  openGraph: {
+    title: "SEO Marketing, Content Strategy & Educational Publishing Services",
+    description: "Choose the right service for your needs: SEO strategy, content creation, or educational publishing. PearlyWrites offers expert solutions to enhance your digital presence and impact.",
+    type: 'website',
+  },
+};
 
 const tiers = [
   {

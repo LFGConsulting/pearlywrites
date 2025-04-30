@@ -11,11 +11,11 @@ function classNames(...classes: string[]) {
 }
 
 export const metadata: Metadata = {
-  title: 'Blog - PearlyWrites',
-  description: 'Industry insights, expert tips, and thought leadership from our team.',
+  title: "Get Expert Tips & Industry Insights on SEO & Content Marketing",
+  description: "Explore the PearlyWrites blog for industry insights, expert tips, and thought leadership on SEO, content marketing, and digital strategy from our team.",
   openGraph: {
-    title: 'Blog - PearlyWrites',
-    description: 'Industry insights, expert tips, and thought leadership from our team.',
+    title: "Get Expert Tips & Industry Insights on SEO & Content Marketing",
+    description: "Explore the PearlyWrites blog for industry insights, expert tips, and thought leadership on SEO, content marketing, and digital strategy from our team.",
     type: 'website',
   },
 }
@@ -77,8 +77,10 @@ export default async function BlogPage() {
                 ) : (
                   <div className="relative w-full aspect-[16/9] mb-4 bg-gray-100 rounded-lg" />
                 )}
-                <div className="max-w-xl">
-                  <div className="mt-8 flex items-center gap-x-4 text-xs">
+                
+                {/* Render only the text content */}
+                <div className="max-w-xl"> {/* Remove mt-8, spacing handled by image */}
+                  <div className="flex items-center gap-x-4 text-xs">
                     <time dateTime={post.published_at} className="text-gray-500 dark:text-gray-400">
                       {formatDate(post.published_at)}
                     </time>

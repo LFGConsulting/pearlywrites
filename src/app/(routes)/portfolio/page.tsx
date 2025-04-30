@@ -3,6 +3,17 @@ import Link from 'next/link'
 import { Container } from '../../components/ui'
 import { Carousel } from '../../components/ui/Carousel'
 import { Button } from '../../components/ui/Button'
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: "Results That Speak Volumes: PearlyWrites' Client Successes",
+  description: "See real-world examples of how PearlyWrites' strategic approach to SEO and content marketing has delivered significant results for our clients.",
+  openGraph: {
+    title: "Results That Speak Volumes: PearlyWrites' Client Successes",
+    description: "See real-world examples of how PearlyWrites' strategic approach to SEO and content marketing has delivered significant results for our clients.",
+    type: 'website',
+  },
+};
 
 const caseStudies = [
   {

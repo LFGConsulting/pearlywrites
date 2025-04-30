@@ -1,5 +1,16 @@
 import Image from 'next/image'
 import { Container } from '../../components/ui'
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: "Learn About PearlyWrites: Your Partner for Effective Content & SEO Strategy",
+  description: "Learn how PearlyWrites combines deep SEO knowledge with creative storytelling to deliver content that educates, inspires, and drives results for businesses across industries.",
+  openGraph: {
+    title: "Learn About PearlyWrites: Your Partner for Effective Content & SEO Strategy",
+    description: "Learn how PearlyWrites combines deep SEO knowledge with creative storytelling to deliver content that educates, inspires, and drives results for businesses across industries.",
+    type: 'website', // Or 'profile' if more appropriate
+  },
+};
 
 export default function AboutPage() {
   return (
