@@ -1,7 +1,6 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
-import ResponsiveImage from './ResponsiveImage';
 
 interface GhostContentProps {
   html: string;
@@ -13,6 +12,26 @@ export default function GhostContent({ html, className = '' }: GhostContentProps
 
   useEffect(() => {
     if (!contentRef.current) return;
+
+    // Handle external links - open in new tab
+    const domain = window.location.hostname;
+    const anchors = contentRef.current.querySelectorAll('a[href]'); // Only select links with href attribute
+ 
+    anchors.forEach(anchor => {
+      try {
+        const anchorElement = anchor as HTMLAnchorElement;
+        const { origin } = new URL(anchorElement.href); // Get link origin
+ 
+        if (origin.indexOf(domain) === -1) { // Check if external link
+          anchorElement.setAttribute('target', '_blank');
+          anchorElement.setAttribute('rel', 'noopener noreferrer'); // This is a good practice to avoid tabnabbing
+        }
+      } catch {
+        // Handle relative URLs or invalid URLs gracefully
+        const anchorElement = anchor as HTMLAnchorElement;
+        console.warn('Invalid URL in Ghost content:', anchorElement.href);
+      }
+    });
 
     // Find all img tags in the content
     const images = contentRef.current.getElementsByTagName('img');
