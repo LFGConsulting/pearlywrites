@@ -5,7 +5,7 @@
 ### Main Navigation
 - Home
 - About (including Lisa's profile)
-- Services (SEO, Content Strategy, Educational Publishing)
+- Services (SEO Marketing, Content Strategy, Educational Publishing, Digital PR)
 - Blog
 - Portfolio
 - Contact
@@ -18,6 +18,7 @@
   - Content Strategy
   - Educational Publishing
   - Curriculum Development
+  - Digital PR
 
 ### Key Value Propositions
 - Long-standing experience (since late 90s, pre-Google era)

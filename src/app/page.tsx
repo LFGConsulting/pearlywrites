@@ -1,4 +1,4 @@
-import { ChartBarIcon, PencilIcon, MegaphoneIcon, AcademicCapIcon } from "@heroicons/react/24/outline";
+import { ChartBarIcon, PencilIcon, NewspaperIcon, AcademicCapIcon } from "@heroicons/react/24/outline";
 import { Hero } from "./components/ui/Hero";
 
 const features = [
@@ -13,9 +13,9 @@ const features = [
     icon: PencilIcon,
   },
   {
-    name: "Social Media Management",
-    description: "Build and maintain a strong social media presence that connects with your audience and amplifies your brand message.",
-    icon: MegaphoneIcon,
+    name: "Digital PR",
+    description: "Leverage strategic public relations tactics to gain visibility, build brand authority, and create citable linkable assets that enhance your reputation.",
+    icon: NewspaperIcon,
   },
   {
     name: "Educational Publishing",

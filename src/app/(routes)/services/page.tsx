@@ -5,11 +5,11 @@ import { Button } from '../../components/ui/Button'
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: "SEO Marketing, Content Strategy & Educational Publishing Services",
-  description: "Choose the right service for your needs: SEO strategy, content creation, or educational publishing. PearlyWrites offers expert solutions to enhance your digital presence and impact.",
+  title: "SEO Marketing, Content Strategy, Educational Publishing & Digital PR Services",
+  description: "Choose the right service for your needs: SEO strategy, content creation, educational publishing, or digital PR. PearlyWrites offers expert solutions to enhance your digital presence and impact.",
   openGraph: {
-    title: "SEO Marketing, Content Strategy & Educational Publishing Services",
-    description: "Choose the right service for your needs: SEO strategy, content creation, or educational publishing. PearlyWrites offers expert solutions to enhance your digital presence and impact.",
+    title: "SEO Marketing, Content Strategy, Educational Publishing & Digital PR Services",
+    description: "Choose the right service for your needs: SEO strategy, content creation, educational publishing, or digital PR. PearlyWrites offers expert solutions to enhance your digital presence and impact.",
     type: 'website',
   },
 };
@@ -57,6 +57,20 @@ const tiers = [
       'Student workbooks',
     ],
   },
+  {
+    name: 'Digital PR',
+    id: 'digital-pr',
+    href: '/contact',
+    description: 'A strategic marketing approach that leverages public relations tactics like creating newsworthy content and outreach to gain visibility for a brand across online platforms. The primary goal is to build citations, brand authority, increase awareness, and enhance reputation.',
+    features: [
+      'Earned Media Coverage',
+      'Brand Authority',
+      'Citable Linkable Assets',
+      'Targeted Outreach',
+      'Improved AI SEO',
+      'Increased Traffic',
+    ],
+  },
 ]
 
 export default function ServicesPage() {
@@ -69,12 +83,12 @@ export default function ServicesPage() {
             Choose the right service for your needs
           </p>
           <p className="mt-6 text-lg leading-8 text-gray-600 dark:text-gray-300">
-            Specialized in SEO marketing, content strategy, and educational publishing, we deliver expert solutions
+            Specialized in SEO marketing, content strategy, educational publishing, and digital PR, we deliver expert solutions
             to help you achieve measurable results and lasting impact.
           </p>
         </div>
 
-        <div className="isolate mx-auto mt-16 grid max-w-md grid-cols-1 gap-y-8 sm:mt-20 lg:mx-0 lg:max-w-none lg:grid-cols-3 lg:gap-x-8 xl:gap-x-12">
+        <div className="isolate mx-auto mt-16 grid max-w-md grid-cols-1 gap-y-8 sm:mt-20 lg:mx-0 lg:max-w-none md:grid-cols-2 lg:grid-cols-4 lg:gap-x-8 xl:gap-x-12">
           {tiers.map((tier) => (
             <Link key={tier.id} href={tier.href} className="block group relative flex flex-col rounded-3xl p-8 ring-1 xl:p-10
                          transition-colors duration-300 ease-in-out 
