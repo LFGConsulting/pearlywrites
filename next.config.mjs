@@ -25,11 +25,6 @@ const nextConfig = async () => {
   const generatedPatterns = await loadRemotePatterns();
 
   return {
-    eslint: {
-      // Warning: This allows production builds to successfully complete even if
-      // your project has ESLint errors.
-      ignoreDuringBuilds: true,
-    },
     images: {
       // You might not need the 'domains' array anymore if all are covered by patterns
       // domains: [
